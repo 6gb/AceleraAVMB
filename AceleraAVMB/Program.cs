@@ -103,8 +103,7 @@ namespace AceleraAVMB
 
         static void Main(string[] args)
         {
-            while (true)
-                Exercicios.Exercicio12();
+            Exercicios.Exercicio22();
         }
     }
 }
