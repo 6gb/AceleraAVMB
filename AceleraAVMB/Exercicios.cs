@@ -103,16 +103,20 @@ namespace AceleraAVMB
 
         public static void Exercicio1()
         {
-            var numeros = new List<int>(4);
+            ///
             /// 1 - Escrever um algoritmo para ler quatro valores inteiros,
+            /// calcular a sua média, e escrever na tela os que são superiores à média.
+            /// 
+
+            var numeros = new List<int>(4);
+            
             for (int i = 0; i < 4; i++)
             {
                 Console.Write($"Informe o {i + 1}º nº: ");
                 numeros.Add(int.Parse(Console.ReadLine()));
             }
-            /// calcular a sua média,
+            
             var media = numeros.Sum() / 4;
-            /// e escrever na tela os que são superiores à média.
             numeros.ForEach(n =>
             {
                 if (n > media)
@@ -122,7 +126,10 @@ namespace AceleraAVMB
 
         public static void Exercicio2()
         {
+            //
             /// 2 - Escrever um algoritmo para ler a quantidade de horas aula dadas por dois professores
+            /// 
+
             var horas = new List<int>(2);
             var valorPorHora = new List<int>(2);
             var salarios = new List<int>(2);
@@ -144,10 +151,16 @@ namespace AceleraAVMB
 
         public static void Exercicio3()
         {
+            ///
             /// 3 - Escreva um programa que pede para o usuário digitar um valor entre 1 e 12,
+            /// e então mostre na tela o mês correspondente
+            /// Caso o usuário digite um valor fora do intervalo,
+            /// mostre uma mensagem indicando que é um mês inválido.
+            /// 
+
             Console.Write("Digite valor entre 1 e 12: ");
             int valor = int.Parse(Console.ReadLine());
-            /// e então mostre na tela o mês correspondente
+            
             Console.WriteLine(valor switch
             {
                 1 => "Janeiro",
@@ -162,25 +175,27 @@ namespace AceleraAVMB
                 10 => "Outubro",
                 11 => "Novembro",
                 12 => "Dezembro",
-                /// Caso o usuário digite um valor fora do intervalo,
-                /// mostre uma mensagem indicando que é um mês inválido.
                 _ => "Mês inválido"
             });
         }
 
         public static void Exercicio4()
         {
+            ///
             /// 4 - Escreva um programa que leia um valor entre 0 e 9,
+            /// Pergunte também se o usuário quer saber a forma literal em português, inglês ou espanhol.
+            /// e então escreva na tela o mesmo na forma literal.
+            /// 
+
             Console.Write("Digite valor entre 0 e 9: ");
             int valor = int.Parse(Console.ReadKey().KeyChar.ToString());
             Console.WriteLine();
 
-            /// Pergunte também se o usuário quer saber a forma literal em português, inglês ou espanhol.
+            
             Console.Write("Forma literal em [p]ortuguês, [i]nglês ou [e]spanhol? ");
             char lingua = Console.ReadKey().KeyChar;
             Console.WriteLine();
 
-            /// e então escreva na tela o mesmo na forma literal.
             Console.WriteLine((valor, lingua) switch
             {
                 ( 0, 'p' or 'i' ) => "Zero",
@@ -218,9 +233,11 @@ namespace AceleraAVMB
 
         public static void Exercicio5()
         {
+            ///
             /// 5 - Escreva um programa que peça para o usuário digitar uma letra,
             /// e então o programa imprime na tela se a letra é uma vogal ou consoante.
             /// Utilize no máximo 6 cases em um switch-case para resolver esse exercício.
+            /// 
 
             Console.Write("Digite uma letra: ");
             char letra = Console.ReadKey().KeyChar;
@@ -250,9 +267,11 @@ namespace AceleraAVMB
 
         public static void Exercicio6()
         {
+            ///
             /// 6 - Fazer uma algoritmo que leia valores para as variáveis hora, minuto e segundo;
             /// verificando e escrevendo se elas correspondem a um horário válido ou não.
             /// Para um horário ser válido, a hora deve estar no intervalo de 0 a 23, o minuto e o segundo no intervalo de 0 a 59.
+            /// 
 
             int h, m, s;
 
@@ -282,9 +301,11 @@ namespace AceleraAVMB
 
         public static void Exercicio7()
         {
+            ///
             /// 7 - Escreva um algoritmo para pesquisa de renda per capita que
             /// leia o valor da renda familiar e o número de integrantes da família.
             /// Calcule o valor da renda per capita da família.
+            /// 
 
             Console.Write("Informe o valor da renda familiar: R$ ");
             //var renda = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
@@ -300,12 +321,14 @@ namespace AceleraAVMB
 
         public static void Exercicio8()
         {
+            ///
             /// 8 - Um comerciante calcula o lucro da venda baseado no valor da compra dos clientes de acordo com os itens a seguir:
             /// Valor da Compra < R$ 10,00  então o Lucro é de 70 %
             /// R$ 10,00 ≤ Valor da Compra < R$ 30,00 então o Lucro é de 50 %
             /// R$ 30,00 ≤ Valor da Compra < R$ 50,00 então o Lucro é de 40 %
             /// Valor da Compra ≥ R$ 50,00 então o Lucro é de 30 %
             /// Criar um algoritmo que leia o valor da compra e imprima uma mensagem indicando de quantos % é o lucro e o valor.
+            /// 
 
             Console.Write("Informe o valor da compra: R$ ");
             //var compra = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
@@ -324,11 +347,13 @@ namespace AceleraAVMB
 
         public static void Exercicio9()
         {
+            ///
             /// 9 - Faça um algoritmo que leia o tamanho dos lados de um triangulo(lado a, b e c),
             /// e então diga se esses lados podem ou não formar um triangulo.
             /// Para que os lados formem um triângulo, todos os lados devem ser menores a soma dos outros dois lados.
             /// Caso os lados formem um triangulo, diga se o mesmo é equilátero(todos os lados iguais),
             /// isoceles(somente 2 lados são iguais) ou escaleno(os 3 lados são diferentes).
+            /// 
 
             var lados = new List<double>(3);
 
@@ -352,7 +377,9 @@ namespace AceleraAVMB
 
         public static void Exercicio10()
         {
+            /// 
             /// 10 - Faça um programa que leia um número e apresente a tabuada deste número.
+            /// 
 
             Console.Write($"Informe um número: ");
             var n = int.Parse(Console.ReadLine());
@@ -363,7 +390,10 @@ namespace AceleraAVMB
 
         public static void Exercicio11()
         {
+            /// 
             /// 11 - Escreva um programa em C que gera números entre 1000 e 1999 e mostra aqueles que divididos por 11 dão resto 5.
+            /// 
+
             for (int i = 1001; i < 1999; i++)
                 if (i % 11 == 5)
                     Console.WriteLine(i);
@@ -371,7 +401,9 @@ namespace AceleraAVMB
 
         public static void Exercicio12()
         {
+            /// 
             /// 12 - Dado um limite inferior e superior, calcule a soma de todos os números pares contidos nesse intervalo.
+            /// 
 
             int l1, l2, inferior, superior;
 
@@ -393,9 +425,11 @@ namespace AceleraAVMB
 
         public static void Exercicio13()
         {
+            /// 
             /// 13 - Escreva um algoritmo que pergunte ao usuário qual o valor inicial da contagem,
             /// qual o valor final, e se ele deseja pular os valores pares ou os valores ímpares.
             /// Após, faça um laço de repetição que mostre os valores desejados.
+            /// 
 
             int inicial, final;
 
@@ -425,8 +459,10 @@ namespace AceleraAVMB
 
         public static void Exercicio14()
         {
+            /// 
             /// 14 - Escreva um programa que pergunte para o usuário os valores iniciais e finais da contagem,
             /// e então mostre todos os valores desse intervalo.
+            /// 
 
             int v1, v2, inicial, final;
 
@@ -442,8 +478,10 @@ namespace AceleraAVMB
 
         public static void Exercicio15()
         {
+            /// 
             /// 15 - Imprima uma tabela de conversão de polegadas para centímetros, de 1 a 20.
             /// Considere que Polegada = Centímetro * 2,54.
+            /// 
 
             for (var i = 1; i <= 20; i++)
                 Console.WriteLine($"{i}cm em polegadas: {i * 2.54}");
@@ -451,16 +489,20 @@ namespace AceleraAVMB
 
         public static void Exercicio16()
         {
+            /// 
             /// 16 - Escreva um programa que pergunte para o usuário os valores iniciais e finais da contagem,
             /// e então mostre todos os valores desse intervalo.
+            /// 
 
             Exercicio14();
         }
 
         public static void Exercicio17()
         {
+            /// 
             /// 17 - Modifique a questão anterior de modo que seja perguntado para o usuário
             /// se ele quer que os números apareçam em ordem crescente ou decrescente.
+            /// 
 
             int v1, v2, inicial, final;
 
@@ -489,6 +531,7 @@ namespace AceleraAVMB
 
         public static void Exercicio18()
         {
+            ///
             /// 18 - Utilize o comando break no código abaixo de modo que o laço pare em 5.
             /// static void Main(string[] args)
             /// {
@@ -496,6 +539,7 @@ namespace AceleraAVMB
             ///     for (i = 0; i < 10; i++)
             ///         Console.WriteLine("Volta numero :" + i);
             /// }
+            /// 
 
             int i;
             for (i = 0; i < 10; i++)
@@ -508,10 +552,11 @@ namespace AceleraAVMB
 
         public static void Exercicio19()
         {
+            ///
             /// 19 - Utilize o comando continue de modo que as voltas de número 5 e 7 sejam puladas no código da questão anterior.
+            /// 
 
-            int i;
-            for (i = 0; i < 10; i++)
+            for (int i = 0; i < 10; i++)
                 if (i == 5 || i == 7)
                     continue;
                 else
@@ -520,8 +565,10 @@ namespace AceleraAVMB
 
         public static void Exercicio20()
         {
+            /// 
             /// 20 - Faça um algoritmo para calcular e mostrar o resultado dos 50 primeiros elementos da série
             /// 1000 / 1 - 997 / 2 + 994 / 3 - 991 / 4 + ...
+            /// 
 
             int j = 1000;
 
@@ -534,8 +581,10 @@ namespace AceleraAVMB
 
         public static void Exercicio21()
         {
+            /// 
             /// 21 - Faça um programa que leia um número n e imprima se ele é primo ou não.
             /// (um número primo tem apenas 2 divisores: 1 e ele mesmo! O número 1 não é primo!!!)
+            /// 
 
             Console.Write("Informe um número: ");
             int n = int.Parse(Console.ReadLine());
@@ -558,6 +607,7 @@ namespace AceleraAVMB
 
         public static void Exercicio22()
         {
+            /// 
             /// Jogo da velha
             /// jogador x jogador (controlar a vez)
             /// controlar o empate
@@ -579,6 +629,7 @@ namespace AceleraAVMB
 
             while (true)
             {
+                Console.Clear();
                 Console.WriteLine($"   1  2  3");
 
                 for (int i = 0; i < 3; i++)
@@ -629,17 +680,44 @@ namespace AceleraAVMB
                     break;
                 }
 
-                //linha--;
-                //coluna--;
+                /*
+                linha--;
+                coluna--;
 
-                if (jogador==tabuleiro[0, 0]&&jogador==tabuleiro[0, 1]&&jogador==tabuleiro[0, 2]||
-                    jogador==tabuleiro[1, 0]&&jogador==tabuleiro[1, 1]&&jogador==tabuleiro[1, 2]||
-                    jogador==tabuleiro[2, 0]&&jogador==tabuleiro[2, 1]&&jogador==tabuleiro[2, 2]||
-                    jogador==tabuleiro[0, 0]&&jogador==tabuleiro[1, 0]&&jogador==tabuleiro[2, 0]||
-                    jogador==tabuleiro[0, 1]&&jogador==tabuleiro[1, 1]&&jogador==tabuleiro[2, 1]||
-                    jogador==tabuleiro[0, 2]&&jogador==tabuleiro[1, 2]&&jogador==tabuleiro[2, 2]||
-                    jogador==tabuleiro[0, 0]&&jogador==tabuleiro[1, 1]&&jogador==tabuleiro[2, 2]||
-                    jogador==tabuleiro[0, 2]&&jogador==tabuleiro[1, 1]&&jogador==tabuleiro[2, 0])
+                switch (linha, coluna)
+                {
+                    case (0, _):
+                        if (tabuleiro[linha, coluna] == jogador)
+                        {
+
+                        }
+                        break;
+                    case (2, 2):
+                        break;
+                }
+
+                if (linha == 0 )
+                {
+
+                }
+
+
+                if (tabuleiro[linha, coluna] != jogador && tabuleiro[linha, coluna])
+                {
+
+                }
+                */
+
+
+
+                if (jogador == tabuleiro[0, 0] && jogador == tabuleiro[0, 1] && jogador == tabuleiro[0, 2] ||
+                    jogador == tabuleiro[1, 0] && jogador == tabuleiro[1, 1] && jogador == tabuleiro[1, 2] ||
+                    jogador == tabuleiro[2, 0] && jogador == tabuleiro[2, 1] && jogador == tabuleiro[2, 2] ||
+                    jogador == tabuleiro[0, 0] && jogador == tabuleiro[1, 0] && jogador == tabuleiro[2, 0] ||
+                    jogador == tabuleiro[0, 1] && jogador == tabuleiro[1, 1] && jogador == tabuleiro[2, 1] ||
+                    jogador == tabuleiro[0, 2] && jogador == tabuleiro[1, 2] && jogador == tabuleiro[2, 2] ||
+                    jogador == tabuleiro[0, 0] && jogador == tabuleiro[1, 1] && jogador == tabuleiro[2, 2] ||
+                    jogador == tabuleiro[0, 2] && jogador == tabuleiro[1, 1] && jogador == tabuleiro[2, 0])
                 {
                     Console.WriteLine($"   1  2  3");
 
@@ -652,6 +730,12 @@ namespace AceleraAVMB
 
                 vez *= -1;
             }
+        }
+
+        public static void Exercicio23()
+        {
+            Console.WriteLine(int.MinValue);
+            Console.WriteLine(int.MaxValue);
         }
     }
 }

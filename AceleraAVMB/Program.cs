@@ -6,6 +6,40 @@ namespace AceleraAVMB
     {
         static void Main(string[] args)
         {
+            string nomeArquivo;
+            Console.WriteLine("Informe o nome do arquivo: ");
+            nomeArquivo = Console.ReadLine();
+
+            Arquivo a = new Arquivo(nomeArquivo);
+
+            a.criaAbreArquivo();
+            a.gravaMensagem("alou");
+
+            Console.WriteLine("Digite:\n" +
+                "1 - para criar\n" +
+                "2 - para" +
+                "3 - para" +
+                "0 - para");
+
+            int op = int.Parse(Console.ReadLine());
+
+            switch (op)
+            {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 0:
+                    break;
+                default:
+                    break;
+            }
+
+            //Arquivos.Teste();
+
+            /*
             Type t = new Exercicios().GetType();
 
             try
@@ -29,6 +63,7 @@ namespace AceleraAVMB
                     }
                 }
             }
+            */
         }
     }
 }
