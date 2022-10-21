@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace AceleraAVMB
+namespace Semana4
 {
     internal class Arquivo
     {
@@ -15,19 +15,23 @@ namespace AceleraAVMB
 
         public void criaAbreArquivo()
         {
-            sw = new StreamWriter("C:\\Arquivo\\" + nome + ".txt", true, Encoding.UTF8);
+            sw = new StreamWriter(".\\" + nome + ".txt", true, Encoding.UTF8);
         }
 
         public void lerArquivo()
         {
+            //Console.Write(sr.ReadToEnd());
+
+            sr = new StreamReader(".\\" + nome + ".txt");
             string linha = sr.ReadLine();
-            sr = new StreamReader("C:\\Arquivo\\" + nome + ".txt");
 
             while (linha != null)
             {
                 Console.WriteLine(linha);
                 linha = sr.ReadLine();
             }
+
+            sr.Close();
         }
 
         public void gravaMensagem(string mensagem)

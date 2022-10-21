@@ -1,107 +1,41 @@
-﻿using System.Globalization;
+﻿using System.Reflection;
 
-namespace AceleraAVMB
+namespace Semana1
 {
-    internal class Exercicios
+    internal class Program
     {
-        static dynamic ReadValue(Type type, string helpText)
+        static void Main(string[] args)
         {
-            bool check = false;
-            dynamic number = 0;
-            Console.WriteLine(helpText);
+            Type t = new Program().GetType();
 
-            while (!check)
+            try
             {
-                string? entrada = Console.ReadLine();
-
-                if (type == typeof(double))
-                {
-                    double doubleValue;
-                    check = double.TryParse(entrada, out doubleValue);
-                    number = doubleValue;
-                }
-                else if (type == typeof(int))
-                {
-                    int intValue;
-                    check = int.TryParse(entrada, out intValue);
-                    number = intValue;
-                }
-                else
-                    throw new ArgumentException("Tipo não suportado");
-
-                if (!check)
-                    Console.WriteLine("Tente novamente");
+                t.InvokeMember($"Atividade{args[0]}", BindingFlags.InvokeMethod, null, null, null);
             }
+            catch
+            {
+                while (true)
+                {
+                    Console.Write("Informe o nº da atividade: ");
+                    var n = Console.ReadLine();
 
-            return number;
+                    try
+                    {
+                        t.InvokeMember($"Atividade{n}", BindingFlags.InvokeMethod, null, null, null);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Argumento inválido informado");
+                    }
+
+                    Console.Write("Pressione qualquer tecla para continuar... ");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+            }
         }
 
-        static void ExerciciosIniciais()
-        {
-            int x = 5, y = 10;
-            double z;
-            z = 3.1415;
-            Console.WriteLine("Os valores sao " + x + ", " + y + " e " + z);
-            Console.WriteLine("Os valores sao {0}, {1} e {2}", x, y, z);
-            Console.WriteLine($"Os valores sao {x}, {y} e {z}");
-
-            double a = double.Parse("3,3", new CultureInfo("pt-BR"));
-            Console.WriteLine(a);
-
-            /// Faça a leitura de dois números e apresenta a soma, subtração, multiplicação e divisão
-            /// 
-
-            double n1 = ReadValue(typeof(double), "Informe o primeiro número");
-            double n2 = ReadValue(typeof(double), "Informe o segundo número");
-
-            Console.Write("Soma: " + (n1 + n2) + "\n");
-            Console.WriteLine($"Subtração: {n1 - n2}");
-            Console.WriteLine("Multiplicação: {0}", n1 * n2);
-            Console.Write("Divisão: " + n1 / n2 + "\n");
-
-            /// Faça um algoritmo para o calculo da área de um retângulo.
-            /// 
-
-            double lado1 = n1;
-            double lado2 = n2;
-            double areaDeRetangulo = lado1 * lado2;
-            Console.WriteLine($"Área de retângulo: {areaDeRetangulo}");
-
-            /// Faça um algoritmo para calcular a área de um triângulo equilátero.
-            /// 
-
-            double lado = n1;
-            /// altura² = lado² + (lado/2)²
-            double altura = Math.Sqrt(Math.Pow(lado, 2) - Math.Pow(lado / 2, 2));
-            double areaDeTrianguloEquilatero = (lado * altura) / 2;
-            Console.WriteLine($"Área de triângulo equilátero: {areaDeTrianguloEquilatero}");
-
-            /// Escreva um algoritmo para calcular a área de um círculo, com base em um raio digitado pelo usuário.
-            /// 
-
-            double raio = ReadValue(typeof(double), "Informe um raio para círculo: ");
-            /// area = pi * r²
-            double areaDeCirculo = Math.PI * Math.Pow(raio, 2);
-            Console.WriteLine($"Área de círculo: {areaDeCirculo}");
-
-            /// Escreva um algoritmo que leia a idade de uma pessoa, e então mostre na tela o ano em que ela nasceu.
-            /// 
-
-            int idade = ReadValue(typeof(int), "Informe uma idade: ");
-
-            DateTime hoje = DateTime.Today;
-
-            int ano = hoje.Year - idade;
-
-            Console.Write("Ano de nascimento: ");
-
-            if (hoje.Day == 31 && hoje.Month == 12)
-                Console.WriteLine($"{ano}");
-            else
-                Console.WriteLine($"{ano - 1} ou {ano}");
-        }
-
-        public static void Exercicio1()
+        public static void Atividade1()
         {
             ///
             /// 1 - Escrever um algoritmo para ler quatro valores inteiros,
@@ -109,13 +43,13 @@ namespace AceleraAVMB
             /// 
 
             var numeros = new List<int>(4);
-            
+
             for (int i = 0; i < 4; i++)
             {
                 Console.Write($"Informe o {i + 1}º nº: ");
                 numeros.Add(int.Parse(Console.ReadLine()));
             }
-            
+
             var media = numeros.Sum() / 4;
             numeros.ForEach(n =>
             {
@@ -124,10 +58,11 @@ namespace AceleraAVMB
             });
         }
 
-        public static void Exercicio2()
+        public static void Atividade2()
         {
             //
             /// 2 - Escrever um algoritmo para ler a quantidade de horas aula dadas por dois professores
+            /// e o valor por hora recebido por cada um deles.
             /// 
 
             var horas = new List<int>(2);
@@ -138,7 +73,7 @@ namespace AceleraAVMB
             {
                 Console.Write($"Informe a quantidade de horas do {i + 1}º professor: ");
                 horas.Add(int.Parse(Console.ReadLine()));
-                /// e o valor por hora recebido por cada um deles.
+
                 Console.Write($"Informe o valor por hora recebido pelo {i + 1}º professor: ");
                 valorPorHora.Add(int.Parse(Console.ReadLine()));
                 salarios.Add(horas[i] * valorPorHora[i]);
@@ -149,7 +84,7 @@ namespace AceleraAVMB
             Console.WriteLine($"{professorDeSalarioMaisAlto}º professor recebe mais");
         }
 
-        public static void Exercicio3()
+        public static void Atividade3()
         {
             ///
             /// 3 - Escreva um programa que pede para o usuário digitar um valor entre 1 e 12,
@@ -160,7 +95,7 @@ namespace AceleraAVMB
 
             Console.Write("Digite valor entre 1 e 12: ");
             int valor = int.Parse(Console.ReadLine());
-            
+
             Console.WriteLine(valor switch
             {
                 1 => "Janeiro",
@@ -179,7 +114,7 @@ namespace AceleraAVMB
             });
         }
 
-        public static void Exercicio4()
+        public static void Atividade4()
         {
             ///
             /// 4 - Escreva um programa que leia um valor entre 0 e 9,
@@ -191,47 +126,47 @@ namespace AceleraAVMB
             int valor = int.Parse(Console.ReadKey().KeyChar.ToString());
             Console.WriteLine();
 
-            
+
             Console.Write("Forma literal em [p]ortuguês, [i]nglês ou [e]spanhol? ");
             char lingua = Console.ReadKey().KeyChar;
             Console.WriteLine();
 
             Console.WriteLine((valor, lingua) switch
             {
-                ( 0, 'p' or 'i' ) => "Zero",
-                ( 0, 'e' ) => "Cero",
-                ( 1, 'p' ) => "Um",
-                ( 1, 'i' ) => "One",
-                ( 1, 'e' ) => "Uno",
-                ( 2, 'p' ) => "Dois",
-                ( 2, 'i' ) => "Two",
-                ( 2, 'e' ) => "Dos",
-                ( 3, 'p' ) => "Três",
-                ( 3, 'i' ) => "Three",
-                ( 3, 'e' ) => "Tres",
-                ( 4, 'p' ) => "Quatro",
-                ( 4, 'i' ) => "Four",
-                ( 4, 'e' ) => "Cuatro",
-                ( 5, 'p' or 'e' ) => "Cinco",
-                ( 5, 'i' ) => "Five",
-                ( 6, 'p' or 'e' ) => "Seis",
-                ( 6, 'i' ) => "Six",
-                ( 7, 'p' ) => "Sete",
-                ( 7, 'i' ) => "Seven",
-                ( 7, 'e' ) => "Siete",
-                ( 8, 'p' ) => "Oito",
-                ( 8, 'i' ) => "Eight",
-                ( 8, 'e' ) => "Ocho",
-                ( 9, 'p' ) => "Nove",
-                ( 9, 'i' ) => "Nine",
-                ( 9, 'e') => "Nueve",
-                ( < 0 or > 9, 'p' or 'i' or 'e' ) => "Valor numérico inválido",
-                ( > 0 and < 9, _ ) => "Valor da forma literal inválido",
+                (0, 'p' or 'i') => "Zero",
+                (0, 'e') => "Cero",
+                (1, 'p') => "Um",
+                (1, 'i') => "One",
+                (1, 'e') => "Uno",
+                (2, 'p') => "Dois",
+                (2, 'i') => "Two",
+                (2, 'e') => "Dos",
+                (3, 'p') => "Três",
+                (3, 'i') => "Three",
+                (3, 'e') => "Tres",
+                (4, 'p') => "Quatro",
+                (4, 'i') => "Four",
+                (4, 'e') => "Cuatro",
+                (5, 'p' or 'e') => "Cinco",
+                (5, 'i') => "Five",
+                (6, 'p' or 'e') => "Seis",
+                (6, 'i') => "Six",
+                (7, 'p') => "Sete",
+                (7, 'i') => "Seven",
+                (7, 'e') => "Siete",
+                (8, 'p') => "Oito",
+                (8, 'i') => "Eight",
+                (8, 'e') => "Ocho",
+                (9, 'p') => "Nove",
+                (9, 'i') => "Nine",
+                (9, 'e') => "Nueve",
+                ( < 0 or > 9, 'p' or 'i' or 'e') => "Valor numérico inválido",
+                ( > 0 and < 9, _) => "Valor da forma literal inválido",
                 _ => "Valor numérico e da forma literal inválidos"
             });
         }
 
-        public static void Exercicio5()
+        public static void Atividade5()
         {
             ///
             /// 5 - Escreva um programa que peça para o usuário digitar uma letra,
@@ -251,7 +186,8 @@ namespace AceleraAVMB
             });
             */
 
-            switch (letra) {
+            switch (letra)
+            {
                 case 'a':
                 case 'e':
                 case 'i':
@@ -265,7 +201,7 @@ namespace AceleraAVMB
             }
         }
 
-        public static void Exercicio6()
+        public static void Atividade6()
         {
             ///
             /// 6 - Fazer uma algoritmo que leia valores para as variáveis hora, minuto e segundo;
@@ -278,7 +214,7 @@ namespace AceleraAVMB
             do
             {
                 Console.Write("Informe a hora: ");
-                h= int.Parse(Console.ReadLine());
+                h = int.Parse(Console.ReadLine());
             }
             while (h < 0 || h > 23);
 
@@ -299,7 +235,7 @@ namespace AceleraAVMB
             Console.WriteLine($"{h}:{m}:{s}");
         }
 
-        public static void Exercicio7()
+        public static void Atividade7()
         {
             ///
             /// 7 - Escreva um algoritmo para pesquisa de renda per capita que
@@ -319,7 +255,7 @@ namespace AceleraAVMB
             Console.WriteLine($"Renda per capita: R$ {rendaPerCapita.ToString("N2")}");
         }
 
-        public static void Exercicio8()
+        public static void Atividade8()
         {
             ///
             /// 8 - Um comerciante calcula o lucro da venda baseado no valor da compra dos clientes de acordo com os itens a seguir:
@@ -345,7 +281,7 @@ namespace AceleraAVMB
 
         }
 
-        public static void Exercicio9()
+        public static void Atividade9()
         {
             ///
             /// 9 - Faça um algoritmo que leia o tamanho dos lados de um triangulo(lado a, b e c),
@@ -367,15 +303,15 @@ namespace AceleraAVMB
 
             Console.WriteLine((a, b, c) switch
             {
-                _ when (a > b + c || b > a + c || c > a + b) => "Não forma triângulo",
-                _ when (a == b && b == c) => "Lados formam triângulo equilátero",
-                _ when (a == b || a == c || b == c) => "Lados formam triângulo isóceles",
+                _ when a > b + c || b > a + c || c > a + b => "Não forma triângulo",
+                _ when a == b && b == c => "Lados formam triângulo equilátero",
+                _ when a == b || a == c || b == c => "Lados formam triângulo isóceles",
                 _ => "Lados formam triângulo escaleno"
 
             });
         }
 
-        public static void Exercicio10()
+        public static void Atividade10()
         {
             /// 
             /// 10 - Faça um programa que leia um número e apresente a tabuada deste número.
@@ -388,7 +324,7 @@ namespace AceleraAVMB
                 Console.WriteLine($"{n} x {i} = {n * i}");
         }
 
-        public static void Exercicio11()
+        public static void Atividade11()
         {
             /// 
             /// 11 - Escreva um programa em C que gera números entre 1000 e 1999 e mostra aqueles que divididos por 11 dão resto 5.
@@ -399,7 +335,7 @@ namespace AceleraAVMB
                     Console.WriteLine(i);
         }
 
-        public static void Exercicio12()
+        public static void Atividade12()
         {
             /// 
             /// 12 - Dado um limite inferior e superior, calcule a soma de todos os números pares contidos nesse intervalo.
@@ -411,9 +347,9 @@ namespace AceleraAVMB
             l1 = int.Parse(Console.ReadLine());
             l2 = int.Parse(Console.ReadLine());
 
-            (inferior, superior) = (l2 > l1) ? (l1, l2) : (l2, l1);
+            (inferior, superior) = l2 > l1 ? (l1, l2) : (l2, l1);
 
-            inferior += (inferior % 2 == 0) ? 2 : 1;
+            inferior += inferior % 2 == 0 ? 2 : 1;
 
             int soma = 0;
 
@@ -423,7 +359,7 @@ namespace AceleraAVMB
             Console.WriteLine($"Soma dos números pares contidos no intervalo: {soma}");
         }
 
-        public static void Exercicio13()
+        public static void Atividade13()
         {
             /// 
             /// 13 - Escreva um algoritmo que pergunte ao usuário qual o valor inicial da contagem,
@@ -451,16 +387,27 @@ namespace AceleraAVMB
             var opcao = Console.ReadKey().KeyChar;
             Console.WriteLine();
 
-            inicial += (opcao == 'p' && inicial % 2 == 0) ? 1 : 0;
+            inicial += opcao == 'p' && inicial % 2 == 0 ? 1 : 0;
 
             for (int i = inicial; i <= final; i += 2)
                 Console.WriteLine(i);
         }
 
-        public static void Exercicio14()
+        public static void Atividade14()
         {
             /// 
-            /// 14 - Escreva um programa que pergunte para o usuário os valores iniciais e finais da contagem,
+            /// 14 - Imprima uma tabela de conversão de polegadas para centímetros, de 1 a 20.
+            /// Considere que Polegada = Centímetro * 2,54.
+            /// 
+
+            for (var i = 1; i <= 20; i++)
+                Console.WriteLine($"{i}cm em polegadas: {i * 2.54}");
+        }
+
+        public static void Atividade15()
+        {
+            /// 
+            /// 15 - Escreva um programa que pergunte para o usuário os valores iniciais e finais da contagem,
             /// e então mostre todos os valores desse intervalo.
             /// 
 
@@ -470,37 +417,16 @@ namespace AceleraAVMB
             v1 = int.Parse(Console.ReadLine());
             v2 = int.Parse(Console.ReadLine());
 
-            (inicial, final) = (v2 > v1) ? (v1, v2) : (v2, v1);
+            (inicial, final) = v2 > v1 ? (v1, v2) : (v2, v1);
 
             for (int i = inicial; i <= final; i++)
                 Console.WriteLine(i);
         }
 
-        public static void Exercicio15()
+        public static void Atividade16()
         {
             /// 
-            /// 15 - Imprima uma tabela de conversão de polegadas para centímetros, de 1 a 20.
-            /// Considere que Polegada = Centímetro * 2,54.
-            /// 
-
-            for (var i = 1; i <= 20; i++)
-                Console.WriteLine($"{i}cm em polegadas: {i * 2.54}");
-        }
-
-        public static void Exercicio16()
-        {
-            /// 
-            /// 16 - Escreva um programa que pergunte para o usuário os valores iniciais e finais da contagem,
-            /// e então mostre todos os valores desse intervalo.
-            /// 
-
-            Exercicio14();
-        }
-
-        public static void Exercicio17()
-        {
-            /// 
-            /// 17 - Modifique a questão anterior de modo que seja perguntado para o usuário
+            /// 16 - Modifique a questão anterior de modo que seja perguntado para o usuário
             /// se ele quer que os números apareçam em ordem crescente ou decrescente.
             /// 
 
@@ -510,7 +436,7 @@ namespace AceleraAVMB
             v1 = int.Parse(Console.ReadLine());
             v2 = int.Parse(Console.ReadLine());
 
-            (inicial, final) = (v1 < v2) ? (v1, v2) : (v2, v1);
+            (inicial, final) = v1 < v2 ? (v1, v2) : (v2, v1);
 
             Console.Write("Ordem [c]rescente ou [d]ecrescente? ");
             dynamic ordem = Console.ReadKey().KeyChar;
@@ -529,10 +455,10 @@ namespace AceleraAVMB
                 Console.WriteLine(i);
         }
 
-        public static void Exercicio18()
+        public static void Atividade17()
         {
             ///
-            /// 18 - Utilize o comando break no código abaixo de modo que o laço pare em 5.
+            /// 17 - Utilize o comando break no código abaixo de modo que o laço pare em 5.
             /// static void Main(string[] args)
             /// {
             ///     int i;
@@ -550,10 +476,10 @@ namespace AceleraAVMB
 
         }
 
-        public static void Exercicio19()
+        public static void Atividade18()
         {
             ///
-            /// 19 - Utilize o comando continue de modo que as voltas de número 5 e 7 sejam puladas no código da questão anterior.
+            /// 18 - Utilize o comando continue de modo que as voltas de número 5 e 7 sejam puladas no código da questão anterior.
             /// 
 
             for (int i = 0; i < 10; i++)
@@ -563,10 +489,10 @@ namespace AceleraAVMB
                     Console.WriteLine("Volta numero :" + i);
         }
 
-        public static void Exercicio20()
+        public static void Atividade19()
         {
             /// 
-            /// 20 - Faça um algoritmo para calcular e mostrar o resultado dos 50 primeiros elementos da série
+            /// 19 - Faça um algoritmo para calcular e mostrar o resultado dos 50 primeiros elementos da série
             /// 1000 / 1 - 997 / 2 + 994 / 3 - 991 / 4 + ...
             /// 
 
@@ -574,22 +500,22 @@ namespace AceleraAVMB
 
             for (int i = 0; i < 50; i++)
             {
-                Console.WriteLine($"{i + 1}: {((i % 2 == 0) ? (i + j) : (i - j))}");
+                Console.WriteLine($"{i + 1}: {(i % 2 == 0 ? i + j : i - j)}");
                 j -= 3;
             }
         }
 
-        public static void Exercicio21()
+        public static void Atividade20()
         {
             /// 
-            /// 21 - Faça um programa que leia um número n e imprima se ele é primo ou não.
+            /// 20 - Faça um programa que leia um número n e imprima se ele é primo ou não.
             /// (um número primo tem apenas 2 divisores: 1 e ele mesmo! O número 1 não é primo!!!)
             /// 
 
             Console.Write("Informe um número: ");
             int n = int.Parse(Console.ReadLine());
 
-            bool primo = (n == 1) ? false : true;
+            bool primo = n == 1 ? false : true;
 
             int i;
             for (i = 2; i < n; i++)
@@ -603,139 +529,6 @@ namespace AceleraAVMB
 
             if (!primo && n != 1)
                 Console.WriteLine($"(Divisível por {i})");
-        }
-
-        public static void Exercicio22()
-        {
-            /// 
-            /// Jogo da velha
-            /// jogador x jogador (controlar a vez)
-            /// controlar o empate
-            /// uma matriz representa o tabuleiro
-            /// jogador seleciona a posição (linha e coluna)
-            /// controla se a posição está liberada
-            /// informa o ganhador
-            /// informa o empate
-            /// desenhar o tabuleiro a cada rodada
-            /// 
-
-            var tabuleiro = new char[3, 3];
-
-            for (int i = 0; i < 3; i++)
-                for (int j = 0; j < 3; j++)
-                    tabuleiro[i, j] = ' ';
-
-            int vez = 1, jogadas = 9;
-
-            while (true)
-            {
-                Console.Clear();
-                Console.WriteLine($"   1  2  3");
-
-                for (int i = 0; i < 3; i++)
-                    Console.WriteLine($"{i+1} [{tabuleiro[i, 0]}][{tabuleiro[i, 1]}][{tabuleiro[i, 2]}]");
-
-                var jogador = (vez == 1) ? 'X' : 'O';
-
-                int linha, coluna;
-
-                while (true)
-                {
-                    while (true)
-                    {
-                        Console.Write($"(Jogador {jogador}) Linha: ");
-                        linha = int.Parse(Console.ReadLine());
-
-                        if (linha >= 1 && linha <= 3)
-                            break;
-                        else
-                            Console.WriteLine("Valor inválido, tente novamente");
-                    }
-
-                    while (true)
-                    {
-                        Console.Write($"(Jogador {jogador}) Coluna: ");
-                        coluna = int.Parse(Console.ReadLine());
-
-                        if (coluna < 1 || coluna > 3)
-                            Console.WriteLine("Valor inválido, tente novamente");
-                        else
-                            break;
-                    }
-
-                    if (tabuleiro[linha - 1, coluna - 1] != ' ')
-                        Console.WriteLine("Casa já utilizada, tente novamente");
-                    else
-                    {
-                        tabuleiro[linha - 1, coluna - 1] = jogador;
-                        break;
-                    }
-                }
-
-                jogadas--;
-
-                if (jogadas <= 0)
-                {
-                    Console.WriteLine("Jogo terminou empatado");
-                    break;
-                }
-
-                /*
-                linha--;
-                coluna--;
-
-                switch (linha, coluna)
-                {
-                    case (0, _):
-                        if (tabuleiro[linha, coluna] == jogador)
-                        {
-
-                        }
-                        break;
-                    case (2, 2):
-                        break;
-                }
-
-                if (linha == 0 )
-                {
-
-                }
-
-
-                if (tabuleiro[linha, coluna] != jogador && tabuleiro[linha, coluna])
-                {
-
-                }
-                */
-
-
-
-                if (jogador == tabuleiro[0, 0] && jogador == tabuleiro[0, 1] && jogador == tabuleiro[0, 2] ||
-                    jogador == tabuleiro[1, 0] && jogador == tabuleiro[1, 1] && jogador == tabuleiro[1, 2] ||
-                    jogador == tabuleiro[2, 0] && jogador == tabuleiro[2, 1] && jogador == tabuleiro[2, 2] ||
-                    jogador == tabuleiro[0, 0] && jogador == tabuleiro[1, 0] && jogador == tabuleiro[2, 0] ||
-                    jogador == tabuleiro[0, 1] && jogador == tabuleiro[1, 1] && jogador == tabuleiro[2, 1] ||
-                    jogador == tabuleiro[0, 2] && jogador == tabuleiro[1, 2] && jogador == tabuleiro[2, 2] ||
-                    jogador == tabuleiro[0, 0] && jogador == tabuleiro[1, 1] && jogador == tabuleiro[2, 2] ||
-                    jogador == tabuleiro[0, 2] && jogador == tabuleiro[1, 1] && jogador == tabuleiro[2, 0])
-                {
-                    Console.WriteLine($"   1  2  3");
-
-                    for (int i = 0; i < 3; i++)
-                        Console.WriteLine($"{i + 1} [{tabuleiro[i, 0]}][{tabuleiro[i, 1]}][{tabuleiro[i, 2]}]");
-
-                    Console.WriteLine($"Jogador {jogador} venceu");
-                    break;
-                }
-
-                vez *= -1;
-            }
-        }
-
-        public static void Exercicio23()
-        {
-            Console.WriteLine(int.MinValue);
-            Console.WriteLine(int.MaxValue);
         }
     }
 }
