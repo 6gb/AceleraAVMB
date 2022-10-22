@@ -3,17 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Semana1", "Semana1\Semana1.csproj", "{3628BEC3-9905-4C8F-AAF7-50452269CDA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Semana1", "Semana1\Semana1.csproj", "{3628BEC3-9905-4C8F-AAF7-50452269CDA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Semana0", "Semana0\Semana0.csproj", "{148D4A00-225B-4EC5-A1C1-7988763D3716}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Semana0", "Semana0\Semana0.csproj", "{148D4A00-225B-4EC5-A1C1-7988763D3716}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JogoDaVelha", "JogoDaVelha\JogoDaVelha.csproj", "{4831E783-436A-466A-BBF6-A6E599EF68B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JogoDaVelha", "JogoDaVelha\JogoDaVelha.csproj", "{4831E783-436A-466A-BBF6-A6E599EF68B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Semana2", "Semana2\Semana2.csproj", "{50E694B6-F1F4-43B0-8DA1-B62F2E858811}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Semana2", "Semana2\Semana2.csproj", "{50E694B6-F1F4-43B0-8DA1-B62F2E858811}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Semana3", "Semana3\Semana3.csproj", "{8F241730-CABF-4258-BA8F-3636D070D2A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Semana3", "Semana3\Semana3.csproj", "{8F241730-CABF-4258-BA8F-3636D070D2A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Semana4", "Semana4\Semana4.csproj", "{38D6285D-E43C-4B71-82B5-B52FEAC608AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtividadeAlbum", "AtividadeAlbum\AtividadeAlbum.csproj", "{3F2A2F84-0B67-4467-B60F-4DCBE8AEBF5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtividadeEmail", "AtividadeEmail\AtividadeEmail.csproj", "{35D08DDB-21E0-4020-BFA3-81B1E7340D4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtividadeAula", "AtividadeAula\AtividadeAula.csproj", "{9C215628-52BF-41D2-B962-88CF1CDA1676}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Semana4", "Semana4", "{B1E7D31F-2356-4E20-84D6-23DF0F3DFBD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,13 +47,26 @@ Global
 		{8F241730-CABF-4258-BA8F-3636D070D2A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F241730-CABF-4258-BA8F-3636D070D2A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F241730-CABF-4258-BA8F-3636D070D2A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{38D6285D-E43C-4B71-82B5-B52FEAC608AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{38D6285D-E43C-4B71-82B5-B52FEAC608AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{38D6285D-E43C-4B71-82B5-B52FEAC608AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{38D6285D-E43C-4B71-82B5-B52FEAC608AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F2A2F84-0B67-4467-B60F-4DCBE8AEBF5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F2A2F84-0B67-4467-B60F-4DCBE8AEBF5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F2A2F84-0B67-4467-B60F-4DCBE8AEBF5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F2A2F84-0B67-4467-B60F-4DCBE8AEBF5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35D08DDB-21E0-4020-BFA3-81B1E7340D4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35D08DDB-21E0-4020-BFA3-81B1E7340D4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35D08DDB-21E0-4020-BFA3-81B1E7340D4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35D08DDB-21E0-4020-BFA3-81B1E7340D4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C215628-52BF-41D2-B962-88CF1CDA1676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C215628-52BF-41D2-B962-88CF1CDA1676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C215628-52BF-41D2-B962-88CF1CDA1676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C215628-52BF-41D2-B962-88CF1CDA1676}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3F2A2F84-0B67-4467-B60F-4DCBE8AEBF5D} = {B1E7D31F-2356-4E20-84D6-23DF0F3DFBD3}
+		{35D08DDB-21E0-4020-BFA3-81B1E7340D4D} = {B1E7D31F-2356-4E20-84D6-23DF0F3DFBD3}
+		{9C215628-52BF-41D2-B962-88CF1CDA1676} = {B1E7D31F-2356-4E20-84D6-23DF0F3DFBD3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E94C56BD-2314-43C4-BDDA-EAEFA1FFC2D5}

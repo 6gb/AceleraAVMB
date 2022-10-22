@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Semana4
+namespace Semana4.AtividadeAula
 {
     internal class Arquivo
     {

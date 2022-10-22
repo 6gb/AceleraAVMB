@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Semana4
+﻿namespace Semana4.AtividadeAula
 {
-    internal class AtividadeAula
+    internal class Program
     {
-        public static void Start()
+        static void Main(string[] args)
         {
             Console.WriteLine("Informe o nome do arquivo: ");
             string nomeArquivo = Console.ReadLine();
@@ -16,6 +10,7 @@ namespace Semana4
             Arquivo a = new Arquivo(nomeArquivo);
 
             int op;
+
             do
             {
                 Console.WriteLine("Digite:\n" +
