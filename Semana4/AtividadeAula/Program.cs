@@ -1,4 +1,4 @@
-﻿namespace Semana4.AtividadeAula
+﻿namespace AtividadeAula
 {
     internal class Program
     {

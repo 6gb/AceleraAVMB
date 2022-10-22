@@ -1,4 +1,4 @@
-﻿namespace Semana4.AtividadeEmail
+﻿namespace AtividadeEmail
 {
 
     /// 

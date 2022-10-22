@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Semana4.AtividadeAula
+namespace AtividadeAula
 {
     internal class Arquivo
     {
@@ -8,7 +8,7 @@ namespace Semana4.AtividadeAula
         StreamWriter sw;
         StreamReader sr;
 
-        public Arquivo (string nome)
+        public Arquivo(string nome)
         {
             this.nome = nome;
         }
