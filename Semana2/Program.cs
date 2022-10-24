@@ -41,7 +41,19 @@ namespace Semana2
             /// 1. Escreva um algoritmo que leia os valores para um vetor de 10 elementos 
             /// e então mostre na tela a quantidade de números pares e ímpares.
             /// 
-            
+
+            const int TAM = 10;
+            int[] vet = new int[TAM];
+            int pares = 0;
+
+            for (int i = 0; i < TAM; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor: ");
+                vet[i] = int.Parse(Console.ReadLine());
+                pares += (vet[i] % 2 == 0) ? 1 : 0;
+            }
+
+            Console.WriteLine($"Pares: {pares}\nÍmpares: {TAM - pares}");
         }
 
         public static void Atividade2()
@@ -50,7 +62,28 @@ namespace Semana2
             /// 2. Escreva um algoritmo que leia valores para dois vetores de 20 elementos 
             /// e então realize a soma dos elementos da mesma posição, armazenando o resultado em um outro vetor.
             /// 
-            
+
+            const int TAM = 20;
+            int[] v1 = new int[TAM];
+            int[] v2 = new int[TAM];
+            int[] v3 = new int[TAM];
+
+            for (int i = 0; i < TAM; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor do 1º vetor: ");
+                v1[i] = int.Parse(Console.ReadLine());
+                Console.Write($"Informe o {i + 1}º valor do 2º vetor: ");
+                v2[i] = int.Parse(Console.ReadLine());
+
+                v3[i] = v1[i] + v2[i];
+            }
+
+            Console.Write("[");
+
+            for (int i = 0; i < TAM - 1; i++)
+                Console.Write($"{v3[i]}, ");
+
+            Console.WriteLine($"{v3[TAM - 1]}]");
         }
 
         public static void Atividade3()
@@ -59,7 +92,27 @@ namespace Semana2
             /// 3. Escreva um algoritmo que leia os valores para um vetor de 20 elementos 
             /// e então mostre na tela o índice da posição dos valores correspondentes a números primos.
             /// 
-            
+
+            const int TAM = 20;
+            int[] valores = new int[TAM];
+            string indices = "";
+
+            for (int i = 0; i < TAM; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor: ");
+                valores[i] = int.Parse(Console.ReadLine());
+
+                if (valores[i] == 2)
+                    indices += $"{i}, ";
+
+                for (int j = 2; j < valores[i]; j++)
+                    if (valores[i] % j == 0)
+                        break;
+                    else if (j == valores[i] - 1)
+                        indices += $"{i}, ";
+            }
+
+            Console.WriteLine(indices.Remove(indices.LastIndexOf(',')));
         }
 
         public static void Atividade4()
@@ -69,7 +122,28 @@ namespace Semana2
             /// colocando o resultado em um terceiro vetor.
             /// Mostre o vetor resultante.
             /// 
-            
+
+            const int TAM = 10;
+            int[] v1 = new int[TAM];
+            int[] v2 = new int[TAM];
+            int[] v3 = new int[TAM];
+
+            for (int i = 0; i < TAM; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor do 1º vetor: ");
+                v1[i] = int.Parse(Console.ReadLine());
+                Console.Write($"Informe o {i + 1}º valor do 2º vetor: ");
+                v2[i] = int.Parse(Console.ReadLine());
+
+                v3[i] = v1[i] * v2[i];
+            }
+
+            Console.Write("[");
+
+            for (int i = 0; i < TAM - 1; i++)
+                Console.Write($"{v3[i]}, ");
+
+            Console.WriteLine($"{v3[TAM - 1]}]");
         }
 
         public static void Atividade5()
@@ -78,7 +152,22 @@ namespace Semana2
             /// 5. Escreva um algoritmo que leia um vetor de 80 elementos inteiros.
             /// Encontre e mostre o menor elemento e a sua posição.
             /// 
-            
+
+            const int TAM = 80;
+            int[] v = new int[TAM];
+            int posicaoDoMenor = 0;
+
+            for (int i = 0; i < TAM; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor: ");
+                v[i] = int.Parse(Console.ReadLine());
+
+                if (v[i] < v[posicaoDoMenor])
+                    posicaoDoMenor = i;
+            }
+
+            Console.WriteLine($"Menor elemento: {v[posicaoDoMenor]}");
+            Console.WriteLine($"Posição do menor elemento: {posicaoDoMenor}");
         }
 
         public static void Atividade6()
@@ -89,7 +178,22 @@ namespace Semana2
             /// a. lê:      |7|40|3|9|21|0|63|31|7|22|
             /// b. escreve: |22|7|31|63|0|21|9|3|40|7|
             /// 
-            
+
+            const int TAM = 10;
+            int[] v = new int[TAM];
+
+            for (int i = 0; i < TAM; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor: ");
+                v[i] = int.Parse(Console.ReadLine());
+            }
+
+            Console.Write("|");
+
+            for (int i = TAM - 1; i >= 0; i--)
+                Console.Write($"{v[i]}|");
+
+            Console.WriteLine();
         }
 
         public static void Atividade7()
@@ -101,7 +205,27 @@ namespace Semana2
             /// a. lê:      |7|40|3|9|21|0|63|31|7|22|
             /// b. escreve: |40|0|22|7|3|9|21|63|31|7|
             /// 
-            
+
+            const int TAM = 10;
+            int[] v = new int[TAM];
+
+            for (int i = 0; i < TAM; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor: ");
+                v[i] = int.Parse(Console.ReadLine());
+            }
+
+            Console.Write("|");
+
+            for (int i = 0; i < TAM; i++)
+                if (v[i] % 2 == 0)
+                    Console.Write($"{v[i]}|");
+
+            for (int i = 0; i < TAM; i++)
+                if (v[i] % 2 != 0)
+                    Console.Write($"{v[i]}|");
+
+            Console.WriteLine();
         }
 
         public static void Atividade8()
@@ -114,6 +238,20 @@ namespace Semana2
             /// b. escreve: |3|5|6|7|9|10|14|. . .
             /// 
 
+            const int TAM = 10;
+            double[] v = new double[TAM];
+            string posicoes = "|";
+
+            for (int i = 0; i < TAM; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor: ");
+                v[i] = int.Parse(Console.ReadLine());
+
+                if (v[i] < 0)
+                    posicoes += $"{i}|";
+            }
+            
+            Console.WriteLine(posicoes);
         }
 
         public static void Atividade9()
