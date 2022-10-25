@@ -63,7 +63,7 @@ namespace AtividadeEmail
 
             try
             {
-                sr = new StreamReader($".\\emails.csv");
+                sr = new StreamReader(".\\emails.csv");
             }
             catch
             {

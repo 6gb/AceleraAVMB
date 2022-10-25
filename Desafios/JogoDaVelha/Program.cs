@@ -3,6 +3,8 @@
     internal class Program
     {
         static char[,] tabuleiro = new char[3, 3];
+        static int linha, coluna;
+
 
         static void MostraTabuleiro()
         {
@@ -11,6 +13,40 @@
 
             for (int i = 0; i < 3; i++)
                 Console.WriteLine($"{i + 1} [{tabuleiro[i, 0]}][{tabuleiro[i, 1]}][{tabuleiro[i, 2]}]");
+        }
+
+        static bool ChecaResultado()
+        {
+            linha--;
+            coluna--;
+
+            switch (linha)
+            {
+                case 0 when tabuleiro[0, 0] != ' ' && tabuleiro[0, 0] == tabuleiro[0, 1] && tabuleiro[0, 1] == tabuleiro[0, 2]:
+                case 1 when tabuleiro[1, 0] != ' ' && tabuleiro[1, 0] == tabuleiro[1, 1] && tabuleiro[1, 1] == tabuleiro[1, 2]:
+                case 2 when tabuleiro[2, 0] != ' ' && tabuleiro[2, 0] == tabuleiro[2, 1] && tabuleiro[2, 1] == tabuleiro[2, 2]:
+                    return true;
+                default:
+                    break;
+            }
+
+            switch (coluna)
+            {
+                case 0 when tabuleiro[0, 0] != ' ' && tabuleiro[0, 0] == tabuleiro[1, 0] && tabuleiro[1, 0] == tabuleiro[2, 0]:
+                case 1 when tabuleiro[0, 1] != ' ' && tabuleiro[0, 1] == tabuleiro[1, 1] && tabuleiro[1, 1] == tabuleiro[2, 1]:
+                case 2 when tabuleiro[0, 2] != ' ' && tabuleiro[0, 2] == tabuleiro[1, 2] && tabuleiro[1, 2] == tabuleiro[2, 2]:
+                    return true;
+                default:
+                    break;
+            }
+
+            if (linha == coluna && tabuleiro[0, 0] != ' ' && tabuleiro[0, 0] == tabuleiro[1, 1] && tabuleiro[1, 1] == tabuleiro[2, 2])
+                return true;
+
+            if (linha + coluna == 2 && tabuleiro[0, 2] != ' ' && tabuleiro[0, 2] == tabuleiro[1, 1] && tabuleiro[1, 1] == tabuleiro[2, 0])
+                return true;
+
+            return false;
         }
 
         static void Main(string[] args)
@@ -37,7 +73,7 @@
             {
                 MostraTabuleiro();
                 char jogador = vez == 1 ? 'X' : 'O';
-                int linha, coluna;
+                
 
                 while (true)
                 {
@@ -81,19 +117,29 @@
                     break;
                 }
 
-                if (jogador == tabuleiro[0, 0] && jogador == tabuleiro[0, 1] && jogador == tabuleiro[0, 2] ||
-                    jogador == tabuleiro[1, 0] && jogador == tabuleiro[1, 1] && jogador == tabuleiro[1, 2] ||
-                    jogador == tabuleiro[2, 0] && jogador == tabuleiro[2, 1] && jogador == tabuleiro[2, 2] ||
-                    jogador == tabuleiro[0, 0] && jogador == tabuleiro[1, 0] && jogador == tabuleiro[2, 0] ||
-                    jogador == tabuleiro[0, 1] && jogador == tabuleiro[1, 1] && jogador == tabuleiro[2, 1] ||
-                    jogador == tabuleiro[0, 2] && jogador == tabuleiro[1, 2] && jogador == tabuleiro[2, 2] ||
-                    jogador == tabuleiro[0, 0] && jogador == tabuleiro[1, 1] && jogador == tabuleiro[2, 2] ||
-                    jogador == tabuleiro[0, 2] && jogador == tabuleiro[1, 1] && jogador == tabuleiro[2, 0])
+                if (ChecaResultado())
                 {
                     MostraTabuleiro();
                     Console.WriteLine($"Jogador {jogador} venceu");
                     break;
                 }
+                    
+
+                /*
+                if (tabuleiro[0, 0] == tabuleiro[0, 1] && tabuleiro[0, 1] == tabuleiro[0, 2] ||
+                    tabuleiro[1, 0] == tabuleiro[1, 1] && tabuleiro[1, 1] == tabuleiro[1, 2] ||
+                    tabuleiro[2, 0] == tabuleiro[2, 1] && tabuleiro[2, 1] == tabuleiro[2, 2] ||
+                    tabuleiro[0, 0] == tabuleiro[1, 0] && tabuleiro[1, 0] == tabuleiro[2, 0] ||
+                    tabuleiro[0, 1] == tabuleiro[1, 1] && tabuleiro[1, 1] == tabuleiro[2, 1] ||
+                    tabuleiro[0, 2] == tabuleiro[1, 2] && tabuleiro[1, 2] == tabuleiro[2, 2] ||
+                    tabuleiro[0, 0] == tabuleiro[1, 1] && tabuleiro[1, 1] == tabuleiro[2, 2] ||
+                    tabuleiro[0, 2] == tabuleiro[1, 1] && tabuleiro[1, 1] == tabuleiro[2, 0])
+                {
+                    MostraTabuleiro();
+                    Console.WriteLine($"Jogador {jogador} venceu");
+                    break;
+                }
+                */
 
                 vez *= -1;
             }

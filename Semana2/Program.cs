@@ -245,7 +245,7 @@ namespace Semana2
             for (int i = 0; i < TAM; i++)
             {
                 Console.Write($"Informe o {i + 1}º valor: ");
-                v[i] = int.Parse(Console.ReadLine());
+                v[i] = double.Parse(Console.ReadLine());
 
                 if (v[i] < 0)
                     posicoes += $"{i}|";
@@ -261,7 +261,7 @@ namespace Semana2
             /// e em seguida ordene em ordem crescente os valores desse vetor, 
             /// utilizando um vetor auxiliar.
             /// 
-            
+
         }
 
         public static void Atividade10()
