@@ -35,6 +35,18 @@ namespace Semana2
             }
         }
 
+        static void ImprimeVetor(dynamic vetor)
+        {
+            Console.Write("|");
+
+            for (int i = 0; i < vetor.Length; i++)
+            {
+                Console.Write(vetor[i] + "|");
+            }
+
+            Console.WriteLine();
+        }
+
         public static void Atividade1()
         {
             /// 
@@ -262,6 +274,26 @@ namespace Semana2
             /// utilizando um vetor auxiliar.
             /// 
 
+            const int TAM = 10;
+            int[] v = new int[TAM], aux = new int[TAM];
+
+            for (int i = 0; i < TAM; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor: ");
+                v[i] = int.Parse(Console.ReadLine());
+
+                for (int j = 0; j < i; j++)
+                {
+                    if (v[i] < v[j])
+                    {
+                        aux[i] = v[i];
+                        v[i] = v[j];
+                        v[j] = aux[i];
+                    }
+                }
+            }
+
+            ImprimeVetor(v);
         }
 
         public static void Atividade10()
@@ -271,7 +303,27 @@ namespace Semana2
             /// Crie um segundo vetor, substituindo os valores nulos por 2. 
             /// Mostre os vetores lidos e o vetor resultado.
             /// 
-            
+
+            const int TAM = 20;
+            int[] v1 = new int[TAM], v2 = new int[TAM];
+
+            for (int i = 0; i < TAM; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor: ");
+
+                try
+                {
+                    v1[i] = int.Parse(Console.ReadLine());
+                    v2[i] = v1[i];
+                }
+                catch
+                {
+                    v2[i] = 2;
+                }
+            }
+
+            ImprimeVetor(v1);
+            ImprimeVetor(v2);
         }
 
         public static void Atividade11()
@@ -280,7 +332,18 @@ namespace Semana2
             /// 11.	Escreva um programa que leia valores em um vetor de 5 posições.
             /// Escrever os elementos do vetor e após escrever os elementos na ordem inversa.
             /// 
-            
+
+            const int TAM = 5;
+            dynamic[] v = new dynamic[TAM];
+
+            for (int i = 0; i < TAM; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor: ");
+                v[i] = int.Parse(Console.ReadLine());
+            }
+
+            ImprimeVetor(v);
+            ImprimeVetor(v.Reverse().ToArray());
         }
 
         public static void Atividade12()
@@ -289,7 +352,31 @@ namespace Semana2
             /// 12.	Faça um algoritmo que leia um vetor V de 10 posições e, após, verifica se um número N, fornecido pelo usuário, existe no vetor.
             /// Se existir, indicar a(s) posição(ões), senão escrever a mensagem "O número fornecido não existe no vetor!".
             /// 
-            
+
+            const int TAM = 10;
+            int[] v = new int[TAM];
+
+            for (int i = 0; i < TAM; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor: ");
+                v[i] = int.Parse(Console.ReadLine());
+            }
+
+            Console.Write($"Informe o número para verificação: ");
+            int n = int.Parse(Console.ReadLine());
+
+            if (v.Contains(n))
+            {
+                Console.Write("|");
+
+                for (int i = 0; i < TAM; i++)
+                    if (v[i] == n)
+                        Console.Write(i + "|");
+
+                Console.WriteLine();
+            }
+            else
+                Console.WriteLine("O número fornecido não existe no vetor!");
         }
 
         public static void Atividade13()
@@ -299,7 +386,23 @@ namespace Semana2
             /// O vetor terá no máximo 100 posições.
             /// Sair do programa quando for digitado -1 ou quando atingir o máximo de posições do vetor.
             /// 
-            
+
+            const int TAM = 100;
+            int[] v = new int[TAM];
+            int vezes = 0;
+
+            for (int i = 0; i < TAM; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor: ");
+                v[i] = int.Parse(Console.ReadLine());
+
+                if (v[i] == 2 || v[i] == 4 || v[i] == 8)
+                    vezes++;
+                else if (v[i] == -1)
+                    break;
+            }
+
+            Console.WriteLine($"Os números 2, 4 e 8 foram lidos {vezes} vezes");
         }
 
         public static void Atividade14()
@@ -310,7 +413,31 @@ namespace Semana2
             /// Se o código for 1, mostre o vetor na ordem em que foi lido. 
             /// Se o código for 2, mostre o vetor na ordem inversa, do último elemento até o primeiro.
             /// 
-            
+
+            const int TAM = 50;
+            int[] v = new int[TAM];
+            int codigo;
+
+            do
+            {
+                Console.Write($"Informe o código [0] para sair, [1] para mostrar vetor na ordem lida ou [2] para mostrar vetor na ordem inversa: ");
+                codigo = int.Parse(Console.ReadLine());
+            }
+            while (codigo < 0 || codigo > 2);
+
+            if (codigo == 0)
+                return;
+
+            for (int i = 0; i < TAM; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor: ");
+                v[i] = int.Parse(Console.ReadLine());
+            }
+
+            if (codigo == 1)
+                ImprimeVetor(v);
+            else
+                ImprimeVetor(v.Reverse().ToArray());
         }
 
         public static void Atividade15()
@@ -321,7 +448,21 @@ namespace Semana2
             /// Assim, o valor do primeiro elemento do primeiro vetor deve ser o valor do último elemento do segundo vetor, por exemplo. 
             /// Mostrar os conteúdos do primeiro vetor em uma linha e os do segundo uma linha abaixo.
             /// 
-            
+
+            const int TAM = 10;
+            int[] v1 = new int[TAM], v2 = new int[TAM];
+
+            for (int i = 0; i < TAM; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor: ");
+                v1[i] = int.Parse(Console.ReadLine());
+                v2[TAM - 1 - i] = v1[i];
+            }
+
+            //v2 = v1.Reverse().ToArray();
+
+            ImprimeVetor(v1);
+            ImprimeVetor(v2);
         }
 
         public static void Atividade16()
@@ -335,6 +476,36 @@ namespace Semana2
             /// Escreva o vetor resultado de cada uma das operações.
             /// 
 
+            const int TAM = 5;
+            int[] x = new int[TAM], y = new int[TAM];
+
+            for (int i = 0; i < TAM; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor do vetor X: ");
+                x[i] = int.Parse(Console.ReadLine());
+            }
+
+            for (int i = 0; i < TAM; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor do vetor Y: ");
+                y[i] = int.Parse(Console.ReadLine());
+            }
+
+            int[] uniao = x.Union(y).ToArray();
+            // Diferença X - Y
+            int[] diferencaXY = x.Except(y).ToArray();
+            // Diferença Y - X
+            int[] diferencaYX = y.Except(x).ToArray();
+            int[] intersecao = x.Intersect(y).ToArray();
+
+            // Diferença simétrica
+            int[] diferencaSimetrica = uniao.Except(intersecao).ToArray();
+
+            ImprimeVetor(uniao);
+            ImprimeVetor(diferencaXY);
+            ImprimeVetor(diferencaYX);
+            ImprimeVetor(intersecao);
+            ImprimeVetor(diferencaSimetrica);
         }
     }
 }
