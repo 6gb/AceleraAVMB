@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace Semana0
+namespace AtividadesReadWrite
 {
     internal class Program
     {

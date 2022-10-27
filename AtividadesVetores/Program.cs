@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace Semana2
+namespace AtividadesVetores
 {
     internal class Program
     {

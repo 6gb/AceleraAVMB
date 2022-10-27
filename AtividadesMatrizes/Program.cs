@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace Semana3
+namespace AtividadesMatrizes
 {
     internal class Program
     {
