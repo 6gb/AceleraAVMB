@@ -1,22 +1,23 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtividadesLacosESwitch", "AtividadesLacosESwitch\AtividadesLacosESwitch.csproj", "{3628BEC3-9905-4C8F-AAF7-50452269CDA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LacosESwitch", "LacosESwitch\LacosESwitch.csproj", "{3628BEC3-9905-4C8F-AAF7-50452269CDA7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtividadesReadWrite", "AtividadesReadWrite\AtividadesReadWrite.csproj", "{148D4A00-225B-4EC5-A1C1-7988763D3716}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeituraEEscrita", "LeituraEEscrita\LeituraEEscrita.csproj", "{148D4A00-225B-4EC5-A1C1-7988763D3716}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtividadesVetores", "AtividadesVetores\AtividadesVetores.csproj", "{50E694B6-F1F4-43B0-8DA1-B62F2E858811}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vetores", "Vetores\Vetores.csproj", "{50E694B6-F1F4-43B0-8DA1-B62F2E858811}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtividadesMatrizes", "AtividadesMatrizes\AtividadesMatrizes.csproj", "{8F241730-CABF-4258-BA8F-3636D070D2A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Matrizes", "Matrizes\Matrizes.csproj", "{8F241730-CABF-4258-BA8F-3636D070D2A1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AtividadesArquivos", "AtividadesArquivos", "{B1E7D31F-2356-4E20-84D6-23DF0F3DFBD3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Arquivos", "Arquivos", "{B1E7D31F-2356-4E20-84D6-23DF0F3DFBD3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtividadeAula", "AtividadesArquivos\AtividadeAula\AtividadeAula.csproj", "{AB44F2B4-D226-4F87-8B60-1FEFFB61D815}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArquivoAula", "Arquivos\ArquivoAula\ArquivoAula.csproj", "{AB44F2B4-D226-4F87-8B60-1FEFFB61D815}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtividadeEmail", "AtividadesArquivos\AtividadeEmail\AtividadeEmail.csproj", "{6B35ABDF-65D3-40B7-B202-69F7CCF3D056}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Email", "Arquivos\Email\Email.csproj", "{6B35ABDF-65D3-40B7-B202-69F7CCF3D056}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtividadeAlbum", "AtividadesArquivos\AtividadeAlbum\AtividadeAlbum.csproj", "{25FDD248-B326-40DA-9E29-FB389A144A02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Album", "Arquivos\Album\Album.csproj", "{25FDD248-B326-40DA-9E29-FB389A144A02}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Desafios", "Desafios", "{7A87E260-4674-4447-A561-F04F6F32B8FD}"
 EndProject

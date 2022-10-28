@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace AtividadeEmail
+namespace Email
 {
 
     /// 

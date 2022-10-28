@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace AtividadesMatrizes
+namespace Matrizes
 {
     internal class Program
     {

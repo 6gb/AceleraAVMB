@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace AtividadesLacosESwitch
+namespace LacosESwitch
 {
     internal class Program
     {

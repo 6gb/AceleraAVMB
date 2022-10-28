@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace AtividadeAlbum
+namespace Album
 {
 
     /// 

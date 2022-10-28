@@ -1,4 +1,4 @@
-﻿namespace AtividadeAula
+﻿namespace ArquivoAula
 {
     internal class Program
     {
