@@ -143,6 +143,18 @@ namespace Matrizes
             /// - Quantos zeros existem!
             /// 
 
+            int[,] matriz = new int[5, 5];
+            int pares, impares, positivos, negativos;
+
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    Console.Write($"({i + 1}x{j + 1}) Informe o valor: ");
+                    matriz[i, j] = int.Parse(Console.ReadLine());
+                }
+            }
         }
 
         public static void Atividade5()
