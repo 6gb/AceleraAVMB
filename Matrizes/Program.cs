@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Matrizes
 {
@@ -44,6 +45,21 @@ namespace Matrizes
             /// Na 3º coluna, armazene o dobro dos elementos da 1ª coluna.
             /// 
 
+            int[,] matriz = new int[5, 3];
+
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write($"Informe o {i + 1}º valor: ");
+                matriz[i, 0] = int.Parse(Console.ReadLine());
+                matriz[i, 1] = matriz[i, 0] + 10;
+                matriz[i, 2] = matriz[i, 0] * 2;
+            }
+
+            for (int i = 0; i < 5; i++)
+                Console.WriteLine(
+                    $"|{matriz[i, 0].ToString().PadLeft(4).PadRight(6)}" +
+                    $"|{matriz[i, 1].ToString().PadLeft(4).PadRight(6)}" +
+                    $"|{matriz[i, 2].ToString().PadLeft(4).PadRight(6)}|");
         }
 
         public static void Atividade2()
@@ -59,6 +75,31 @@ namespace Matrizes
             /// 	     Coluna 2: 36
             /// 
 
+            int[,] matriz = new int[3, 3];
+            int[] somaDeCadaLinha = new int[3], somaDeCadaColuna = new int[3];
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write($"({i + 1}x{j + 1}) Informe o valor: ");
+                    matriz[i, j] = int.Parse(Console.ReadLine());
+                    somaDeCadaLinha[i] += matriz[i, j];
+                    somaDeCadaColuna[j] += matriz[i, j];
+                }
+                
+            }
+
+            for (int i = 0; i < 3; i++)
+                Console.WriteLine(
+                        $"|{matriz[i, 0].ToString().PadLeft(6),-10}" +
+                        $"|{matriz[i, 1].ToString().PadLeft(6),-10}" +
+                        $"|{matriz[i, 2].ToString().PadLeft(6),-10}| Soma: {somaDeCadaLinha[i]}");
+
+            Console.WriteLine(
+                $" {$"Soma: {somaDeCadaColuna[0]}".PadLeft(9),-10}" +
+                $" {$"Soma: {somaDeCadaColuna[1]}".PadLeft(9),-10}" +
+                $" {$"Soma: {somaDeCadaColuna[2]}".PadLeft(9),-10}");
         }
 
         public static void Atividade3()
@@ -67,6 +108,28 @@ namespace Matrizes
             /// 3) Popule uma matriz 4x4 e mostre os elementos da Diagonal Principal!
             /// 
 
+            int[,] matriz = new int[4, 4];
+            int[] diagonalPrincipal = new int[4];
+
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    Console.Write($"({i + 1}x{j + 1}) Informe o valor: ");
+                    matriz[i, j] = int.Parse(Console.ReadLine());
+
+                    if (i == j)
+                        diagonalPrincipal.Append(matriz[i, j]);
+                }
+            }
+
+            for (int i = 0; i < diagonalPrincipal.Length; i++)
+            {
+                for (int j = 0; j < i; j++)
+                    Console.Write("\t");
+
+                Console.WriteLine($"|{matriz[i, i]}|");
+            }
         }
 
         public static void Atividade4()
