@@ -163,6 +163,29 @@ namespace Matrizes
             /// 5) Leia duas matrizes 2x3 de números double. Imprima a soma destas duas matrizes.
             /// 
 
+            double[,] matrizA = new double[2, 3], matrizB = new double[2, 3];
+
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write($"(Matriz A)({i + 1}x{j + 1}) Informe o valor: ");
+                    matrizA[i, j] = int.Parse(Console.ReadLine());
+
+                    Console.Write($"(Matriz B)({i + 1}x{j + 1}) Informe o valor: ");
+                    matrizB[i, j] = int.Parse(Console.ReadLine());
+                }
+            }
+
+            for (int i = 0; i < 2; i++)
+            {
+                Console.Write("|");
+                
+                for (int j = 0; j < 3; j++)
+                    Console.Write(matrizA[i, j] + matrizB[i, j] + "|");
+
+                Console.WriteLine();
+            }
         }
 
         public static void Atividade6()
@@ -174,6 +197,29 @@ namespace Matrizes
             /// int randomNumber = random.Next(0, 100);
             /// 
 
+            int[,] matriz = new int[4, 4];
+            Random random;
+            int maior = -1;
+            Console.WriteLine(matriz.Rank);
+
+
+            for (int i = 0; i < matriz.Rank; i++)
+            {
+                Console.WriteLine(matriz.GetLength(i));
+                Console.Write("|");
+
+                for (int j = 0; j < matriz.GetLength(i); j++)
+                {
+                    random = new Random();
+                    matriz[i, j] = random.Next(0, 9);
+                    Console.Write(matriz[i, j] + "|");
+                    maior = matriz[i, j] > maior ? matriz[i, j] : maior;
+                }
+
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("Maior valor: " + maior);
         }
 
         public static void Atividade7()
