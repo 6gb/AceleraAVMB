@@ -311,39 +311,37 @@ namespace Matrizes
             /// diga quantos dos elementos lidos estão abaixo, acima e na média.
             /// 
 
-            double[,] matrizA = leMatrizDouble(4, 4);
+            //(double[,] a, double[,] b) matrizes = (leMatrizDouble(4, 4), leMatrizDouble(4,4));
             //double[,] matrizes 
+            double[,] matrizA = leMatrizDouble(4, 4);
             double[,] matrizB = leMatrizDouble(4, 4);
 
-            (double a, double b) somas = (a: 0, b: 0);
-            (double a, double b) medias = (a: 0, b: 0);
-            (double a, double b) abaixoDaMedia = (a: 0, b: 0);
-            (double a, double b) acimaDaMedia = (a: 0, b: 0);
-            (double a, double b) naMedia = (a: 0, b: 0);
-
-            //double somaA = 0, somaB = 0, mediaA, mediaB, abaixo, acima, naMedia;
+            double somaA = 0, somaB = 0,
+                mediaA = 0, mediaB = 0,
+                abaixoDaMediaA = 0, abaixoDaMediaB = 0,
+                acimaDaMediaA = 0, acimaDaMediaB = 0,
+                naMediaA = 0, naMediaB = 0;
 
             for (int i = 0; i < 4; i++)
                 for (int j = 0; j < 4; j++)
                 {
-                    somas = (somas.a + matrizA[i, j], somas.b + matrizB[i, j]);
-                    
                     somaA += matrizA[i, j];
-
                     somaB += matrizB[i, j];
                 }
 
-            medias = (somas.a / matrizA.Length, somas.b / matrizB.Length);
+            mediaA = somaA / matrizA.Length;
             mediaB = somaB / matrizB.Length;
 
             for (int i = 0; i < 4; i++)
                 for (int j = 0; j < 4; j++)
                 {
-                    switch matrizA[i, j];
+                    switch (matrizA[i,j])
+                    {
+                        case (< mediaA):
+                            break;
+                    };
                     somaB = matrizB[i, j];
                 }
-
-
         }
 
         public static void Atividade11()
