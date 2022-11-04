@@ -5,6 +5,38 @@ namespace Matrizes
 {
     internal class Program
     {
+        static int[,] leMatrizInt(int linhas, int colunas)
+        {
+            int[,] matriz = new int[linhas, colunas];
+
+            Console.WriteLine($"Leitura de matriz ({linhas}x{colunas})");
+
+            for (int i = 0; i < linhas; i++)
+                for (int j = 0; j < colunas; j++)
+                {
+                    Console.Write($"({i + 1}x{j + 1}) Informe o valor: ");
+                    matriz[i, j] = int.Parse(Console.ReadLine());
+                }
+
+            return matriz;
+        }
+
+        static double[,] leMatrizDouble(int linhas, int colunas)
+        {
+            double[,] matriz = new double[linhas, colunas];
+
+            Console.WriteLine($"Leitura de matriz ({linhas}x{colunas})");
+
+            for (int i = 0; i < linhas; i++)
+                for (int j = 0; j < colunas; j++)
+                {
+                    Console.Write($"({i + 1}x{j + 1}) Informe o valor: ");
+                    matriz[i, j] = double.Parse(Console.ReadLine());
+                }
+
+            return matriz;
+        }
+
         static void Main(string[] args)
         {
             Type t = new Program().GetType();
@@ -78,17 +110,14 @@ namespace Matrizes
             int[,] matriz = new int[3, 3];
             int[] somaDeCadaLinha = new int[3], somaDeCadaColuna = new int[3];
 
-            for (int i = 0; i < 3; i++)
-            {
-                for (int j = 0; j < 3; j++)
+            for (int i = 0; i < matriz.GetLength(0); i++)
+                for (int j = 0; j < matriz.GetLength(1); j++)
                 {
                     Console.Write($"({i + 1}x{j + 1}) Informe o valor: ");
                     matriz[i, j] = int.Parse(Console.ReadLine());
                     somaDeCadaLinha[i] += matriz[i, j];
                     somaDeCadaColuna[j] += matriz[i, j];
                 }
-                
-            }
 
             for (int i = 0; i < 3; i++)
                 Console.WriteLine(
@@ -111,9 +140,8 @@ namespace Matrizes
             int[,] matriz = new int[4, 4];
             int[] diagonalPrincipal = new int[4];
 
-            for (int i = 0; i < 4; i++)
-            {
-                for (int j = 0; j < 4; j++)
+            for (int i = 0; i < matriz.GetLength(0); i++)
+                for (int j = 0; j < matriz.GetLength(1); j++)
                 {
                     Console.Write($"({i + 1}x{j + 1}) Informe o valor: ");
                     matriz[i, j] = int.Parse(Console.ReadLine());
@@ -121,7 +149,6 @@ namespace Matrizes
                     if (i == j)
                         diagonalPrincipal.Append(matriz[i, j]);
                 }
-            }
 
             for (int i = 0; i < diagonalPrincipal.Length; i++)
             {
@@ -143,18 +170,28 @@ namespace Matrizes
             /// - Quantos zeros existem!
             /// 
 
-            int[,] matriz = new int[5, 5];
-            int pares, impares, positivos, negativos;
+            int[,] matriz = leMatrizInt(5, 5);
+            int pares = 0, impares = 0, positivos = 0, negativos = 0, zeros = 0;
 
-
-            for (int i = 0; i < 5; i++)
-            {
-                for (int j = 0; j < 5; j++)
+            for (int i = 0; i < matriz.GetLength(0); i++)
+                for (int j = 0; j < matriz.GetLength(1); j++)
                 {
-                    Console.Write($"({i + 1}x{j + 1}) Informe o valor: ");
-                    matriz[i, j] = int.Parse(Console.ReadLine());
+                    (pares, impares, positivos, negativos, zeros) = matriz[i, j] switch
+                    {
+                        < 0 when matriz[i, j] % 2 == 0 => (pares + 1, impares, positivos, negativos + 1, zeros),
+                        < 0 when matriz[i, j] % 2 != 0 => (pares, impares + 1, positivos, negativos + 1, zeros),
+                        > 0 when matriz[i, j] % 2 == 0 => (pares + 1, impares, positivos + 1, negativos, zeros),
+                        > 0 when matriz[i, j] % 2 != 0 => (pares, impares + 1, positivos + 1, negativos, zeros),
+                        _ => (pares + 1, impares, positivos, negativos, zeros + 1)
+                    };
                 }
-            }
+
+            Console.WriteLine(
+                $"Pares: {pares}\n" +
+                $"Ímpares: {impares}\n" +
+                $"Positivos: {positivos}\n" +
+                $"Negativos: {negativos}\n" +
+                $"Zeros: {zeros}");
         }
 
         public static void Atividade5()
@@ -163,19 +200,7 @@ namespace Matrizes
             /// 5) Leia duas matrizes 2x3 de números double. Imprima a soma destas duas matrizes.
             /// 
 
-            double[,] matrizA = new double[2, 3], matrizB = new double[2, 3];
-
-            for (int i = 0; i < 2; i++)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    Console.Write($"(Matriz A)({i + 1}x{j + 1}) Informe o valor: ");
-                    matrizA[i, j] = int.Parse(Console.ReadLine());
-
-                    Console.Write($"(Matriz B)({i + 1}x{j + 1}) Informe o valor: ");
-                    matrizB[i, j] = int.Parse(Console.ReadLine());
-                }
-            }
+            double[,] matrizA = leMatrizDouble(2, 3), matrizB = leMatrizDouble(2, 3);
 
             for (int i = 0; i < 2; i++)
             {
@@ -200,15 +225,12 @@ namespace Matrizes
             int[,] matriz = new int[4, 4];
             Random random;
             int maior = -1;
-            Console.WriteLine(matriz.Rank);
 
-
-            for (int i = 0; i < matriz.Rank; i++)
+            for (int i = 0; i < matriz.GetLength(0); i++)
             {
-                Console.WriteLine(matriz.GetLength(i));
                 Console.Write("|");
 
-                for (int j = 0; j < matriz.GetLength(i); j++)
+                for (int j = 0; j < matriz.GetLength(1); j++)
                 {
                     random = new Random();
                     matriz[i, j] = random.Next(0, 9);
@@ -229,6 +251,13 @@ namespace Matrizes
             /// onde cada elemento de C é a subtração do elemento correspondente de A com B.
             /// 
 
+            int[,] matrizA = leMatrizInt(3, 3);
+            int[,] matrizB = leMatrizInt(3, 3);
+            int[,] matrizC = new int[3, 3];
+
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                    matrizC[i, j] = matrizA[i, j] - matrizB[i, j];
         }
 
         public static void Atividade8()
@@ -237,6 +266,11 @@ namespace Matrizes
             /// 8) Ler uma matriz com 4x4 de inteiros e mostrar os números na ordem direta e inversa a que foram lidos.
             /// 
 
+            int[,] matriz = leMatrizInt(4, 4);
+
+            for (int i = 3; i >= 0; i--)
+                for (int j = 3; j >= 0; j--)
+                    Console.WriteLine(matriz[i, j]);
         }
 
         public static void Atividade9()
@@ -246,6 +280,28 @@ namespace Matrizes
             /// Caso, seja verdade imprima a mensagem:  “O número existe no vetor”, caso contrário “Número inexistente”.
             /// 
 
+            int[,] matriz = leMatrizInt(3, 3);
+
+            Console.Write("Informe um valor: ");
+            int valor = int.Parse(Console.ReadLine());
+
+            bool numeroExisteNoVetor = false;
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    numeroExisteNoVetor = matriz[i, j] == valor;
+
+                    if (numeroExisteNoVetor)
+                        break;
+                }
+
+                if (numeroExisteNoVetor)
+                    break;
+            }
+
+            Console.WriteLine(numeroExisteNoVetor ? "O número existe no vetor" : "Número inexistente");
         }
 
         public static void Atividade10()
@@ -254,6 +310,39 @@ namespace Matrizes
             /// 10) Leia duas matrizes A e B de 4x4 elementos, calcule a média dos mesmos, em seguida, 
             /// diga quantos dos elementos lidos estão abaixo, acima e na média.
             /// 
+
+            double[,] matrizA = leMatrizDouble(4, 4);
+            //double[,] matrizes 
+            double[,] matrizB = leMatrizDouble(4, 4);
+
+            (double a, double b) somas = (a: 0, b: 0);
+            (double a, double b) medias = (a: 0, b: 0);
+            (double a, double b) abaixoDaMedia = (a: 0, b: 0);
+            (double a, double b) acimaDaMedia = (a: 0, b: 0);
+            (double a, double b) naMedia = (a: 0, b: 0);
+
+            //double somaA = 0, somaB = 0, mediaA, mediaB, abaixo, acima, naMedia;
+
+            for (int i = 0; i < 4; i++)
+                for (int j = 0; j < 4; j++)
+                {
+                    somas = (somas.a + matrizA[i, j], somas.b + matrizB[i, j]);
+                    
+                    somaA += matrizA[i, j];
+
+                    somaB += matrizB[i, j];
+                }
+
+            medias = (somas.a / matrizA.Length, somas.b / matrizB.Length);
+            mediaB = somaB / matrizB.Length;
+
+            for (int i = 0; i < 4; i++)
+                for (int j = 0; j < 4; j++)
+                {
+                    switch matrizA[i, j];
+                    somaB = matrizB[i, j];
+                }
+
 
         }
 
