@@ -1,0 +1,45 @@
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: xx-large;
+    background-image: url("../img/bg.avif");
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+header, footer, section {
+    margin: 0 auto;
+    width: fit-content;
+}
+
+h1 {
+    font-family: 'Bebas Neue', serif;
+}
+
+footer {
+    margin-top: 1em;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+th, td {
+    width: 6em;
+    padding-inline: 0.5em;
+}
+
+.watermark {
+    opacity: 0.3;
+}
+
+.tar {
+    text-align: right;
+}
+
+.tal {
+    text-align: left;
+}
+
+.monospace {
+    font-family: 'Courier New', Courier, monospace;
+}
