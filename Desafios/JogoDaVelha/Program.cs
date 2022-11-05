@@ -3,8 +3,6 @@
     internal class Program
     {
         static char[,] tabuleiro = new char[3, 3];
-        static int linha, coluna;
-
 
         static void MostraTabuleiro()
         {
@@ -15,7 +13,38 @@
                 Console.WriteLine($"{i + 1} [{tabuleiro[i, 0]}][{tabuleiro[i, 1]}][{tabuleiro[i, 2]}]");
         }
 
-        static bool ChecaResultado()
+        static int Escolha(string linhaOuColuna, char jogador)
+        {
+            while (true)
+            {
+                Console.Write($"(Jogador {jogador}) {linhaOuColuna}: ");
+                int valor = int.Parse(Console.ReadLine());
+
+                if (valor >= 1 && valor <= 3)
+                    return valor;
+                else
+                    Console.WriteLine("Valor inválido, tente novamente");
+            }
+        }
+
+        static (int linha, int coluna) NovaJogada(char jogador)
+        {
+            while (true)
+            {
+                int linha = Escolha("Linha", jogador);
+                int coluna = Escolha("Coluna", jogador);
+
+                if (tabuleiro[linha - 1, coluna - 1] != ' ')
+                    Console.WriteLine("Casa já utilizada, tente novamente");
+                else
+                {
+                    tabuleiro[linha - 1, coluna - 1] = jogador;
+                    return (linha, coluna);
+                }
+            }
+        }
+
+        static bool ChecaResultado(int linha, int coluna)
         {
             linha--;
             coluna--;
@@ -63,68 +92,34 @@
             /// desenhar o tabuleiro a cada rodada
             /// 
 
-            for (int i = 0; i < 3; i++)
-                for (int j = 0; j < 3; j++)
+            for (int i = 0; i < tabuleiro.GetLength(0); i++)
+                for (int j = 0; j < tabuleiro.GetLength(1); j++)
                     tabuleiro[i, j] = ' ';
 
-            int vez = 1, jogadas = 9;
+            int jogadasRestantes = tabuleiro.GetLength(0) * tabuleiro.GetLength(1);
+            char jogador = 'X';
 
             while (true)
             {
                 MostraTabuleiro();
-                char jogador = vez == 1 ? 'X' : 'O';
-                
+                (int linha, int coluna) = NovaJogada(jogador);
+                jogadasRestantes--;
 
-                while (true)
-                {
-                    while (true)
-                    {
-                        Console.Write($"(Jogador {jogador}) Linha: ");
-                        linha = int.Parse(Console.ReadLine());
-
-                        if (linha >= 1 && linha <= 3)
-                            break;
-                        else
-                            Console.WriteLine("Valor inválido, tente novamente");
-                    }
-
-                    while (true)
-                    {
-                        Console.Write($"(Jogador {jogador}) Coluna: ");
-                        coluna = int.Parse(Console.ReadLine());
-
-                        if (coluna < 1 || coluna > 3)
-                            Console.WriteLine("Valor inválido, tente novamente");
-                        else
-                            break;
-                    }
-
-                    if (tabuleiro[linha - 1, coluna - 1] != ' ')
-                        Console.WriteLine("Casa já utilizada, tente novamente");
-                    else
-                    {
-                        tabuleiro[linha - 1, coluna - 1] = jogador;
-                        break;
-                    }
-                }
-
-                jogadas--;
-
-                if (jogadas <= 0)
-                {
-                    MostraTabuleiro();
-                    Console.WriteLine("Jogo terminou empatado");
-                    break;
-                }
-
-                if (ChecaResultado())
+                if (ChecaResultado(linha, coluna))
                 {
                     MostraTabuleiro();
                     Console.WriteLine($"Jogador {jogador} venceu");
                     break;
                 }
 
-                vez *= -1;
+                if (jogadasRestantes <= 0)
+                {
+                    MostraTabuleiro();
+                    Console.WriteLine("Jogo terminou empatado");
+                    break;
+                }
+
+                jogador = (jogador == 'X') ? 'O' : 'X';
             }
         }
     }
