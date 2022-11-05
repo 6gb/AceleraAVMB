@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Matrizes
 {
@@ -35,6 +34,19 @@ namespace Matrizes
                 }
 
             return matriz;
+        }
+
+        static void mostraMatrizInt(int[,] matriz)
+        {
+            for (int i = 0; i < matriz.GetLength(0); i++)
+            {
+                Console.Write("|");
+
+                for (int j = 0; j < matriz.GetLength(1); j++)
+                    Console.Write(matriz[i, j].ToString().PadLeft(5).PadRight(10) + "|");
+
+                Console.WriteLine();
+            }
         }
 
         static void Main(string[] args)
@@ -79,7 +91,7 @@ namespace Matrizes
 
             int[,] matriz = new int[5, 3];
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < matriz.GetLength(0); i++)
             {
                 Console.Write($"Informe o {i + 1}º valor: ");
                 matriz[i, 0] = int.Parse(Console.ReadLine());
@@ -87,11 +99,11 @@ namespace Matrizes
                 matriz[i, 2] = matriz[i, 0] * 2;
             }
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < matriz.GetLength(0); i++)
                 Console.WriteLine(
-                    $"|{matriz[i, 0].ToString().PadLeft(4).PadRight(6)}" +
-                    $"|{matriz[i, 1].ToString().PadLeft(4).PadRight(6)}" +
-                    $"|{matriz[i, 2].ToString().PadLeft(4).PadRight(6)}|");
+                    $"|{matriz[i, 0].ToString().PadLeft(4), -6}" +
+                    $"|{matriz[i, 1].ToString().PadLeft(4), -6}" +
+                    $"|{matriz[i, 2].ToString().PadLeft(4), -6}|");
         }
 
         public static void Atividade2()
@@ -119,7 +131,7 @@ namespace Matrizes
                     somaDeCadaColuna[j] += matriz[i, j];
                 }
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < matriz.GetLength(0); i++)
                 Console.WriteLine(
                         $"|{matriz[i, 0].ToString().PadLeft(6),-10}" +
                         $"|{matriz[i, 1].ToString().PadLeft(6),-10}" +
@@ -202,11 +214,11 @@ namespace Matrizes
 
             double[,] matrizA = leMatrizDouble(2, 3), matrizB = leMatrizDouble(2, 3);
 
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < matrizA.GetLength(0); i++)
             {
                 Console.Write("|");
                 
-                for (int j = 0; j < 3; j++)
+                for (int j = 0; j < matrizA.GetLength(1); j++)
                     Console.Write(matrizA[i, j] + matrizB[i, j] + "|");
 
                 Console.WriteLine();
@@ -251,13 +263,13 @@ namespace Matrizes
             /// onde cada elemento de C é a subtração do elemento correspondente de A com B.
             /// 
 
-            int[,] matrizA = leMatrizInt(3, 3);
-            int[,] matrizB = leMatrizInt(3, 3);
-            int[,] matrizC = new int[3, 3];
+            int[,] matrizA = leMatrizInt(3, 3), matrizB = leMatrizInt(3, 3), matrizC = new int[3, 3];
 
-            for (int i = 0; i < 3; i++)
-                for (int j = 0; j < 3; j++)
+            for (int i = 0; i < matrizC.GetLength(0); i++)
+                for (int j = 0; j < matrizC.GetLength(1); j++)
                     matrizC[i, j] = matrizA[i, j] - matrizB[i, j];
+
+            mostraMatrizInt(matrizC);
         }
 
         public static void Atividade8()
@@ -287,9 +299,9 @@ namespace Matrizes
 
             bool numeroExisteNoVetor = false;
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < matriz.GetLength(0); i++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int j = 0; j < matriz.GetLength(1); j++)
                 {
                     numeroExisteNoVetor = matriz[i, j] == valor;
 
@@ -311,19 +323,13 @@ namespace Matrizes
             /// diga quantos dos elementos lidos estão abaixo, acima e na média.
             /// 
 
-            //(double[,] a, double[,] b) matrizes = (leMatrizDouble(4, 4), leMatrizDouble(4,4));
-            //double[,] matrizes 
-            double[,] matrizA = leMatrizDouble(4, 4);
-            double[,] matrizB = leMatrizDouble(4, 4);
+            double[,] matrizA = leMatrizDouble(4, 4), matrizB = leMatrizDouble(4, 4);
 
-            double somaA = 0, somaB = 0,
-                mediaA = 0, mediaB = 0,
-                abaixoDaMediaA = 0, abaixoDaMediaB = 0,
-                acimaDaMediaA = 0, acimaDaMediaB = 0,
-                naMediaA = 0, naMediaB = 0;
+            double somaA = 0, somaB = 0, mediaA, mediaB;
+            int abaixoDaMediaA = 0, abaixoDaMediaB = 0, acimaDaMediaA = 0, acimaDaMediaB = 0, naMediaA = 0, naMediaB = 0;
 
-            for (int i = 0; i < 4; i++)
-                for (int j = 0; j < 4; j++)
+            for (int i = 0; i < matrizA.GetLength(0); i++)
+                for (int j = 0; j < matrizA.GetLength(1); j++)
                 {
                     somaA += matrizA[i, j];
                     somaB += matrizB[i, j];
@@ -332,16 +338,28 @@ namespace Matrizes
             mediaA = somaA / matrizA.Length;
             mediaB = somaB / matrizB.Length;
 
-            for (int i = 0; i < 4; i++)
-                for (int j = 0; j < 4; j++)
+            for (int i = 0; i < matrizA.GetLength(0); i++)
+                for (int j = 0; j < matrizA.GetLength(1); j++)
                 {
-                    switch (matrizA[i,j])
-                    {
-                        case (< mediaA):
-                            break;
-                    };
-                    somaB = matrizB[i, j];
+                    if (matrizA[i, j] < mediaA)
+                        abaixoDaMediaA++;
+                    else if (matrizA[i, j] > mediaA)
+                        acimaDaMediaA++;
+                    else
+                        naMediaA++;
+
+                    if (matrizB[i, j] < mediaB)
+                        abaixoDaMediaB++;
+                    else if (matrizB[i, j] > mediaB)
+                        acimaDaMediaB++;
+                    else
+                        naMediaB++;
                 }
+
+            Console.WriteLine("".PadRight(16) + "Matriz A".PadRight(9).PadLeft(10) + "Matriz B".PadRight(9).PadLeft(10));
+            Console.WriteLine("Abaixo da média".PadRight(16) + abaixoDaMediaA.ToString().PadRight(5).PadLeft(10) + abaixoDaMediaB.ToString().PadRight(5).PadLeft(10));
+            Console.WriteLine("Acima da média".PadRight(16) + acimaDaMediaA.ToString().PadRight(5).PadLeft(10) + acimaDaMediaB.ToString().PadRight(5).PadLeft(10));
+            Console.WriteLine("Na média".PadRight(16) + naMediaA.ToString().PadRight(5).PadLeft(10) + naMediaB.ToString().PadRight(5).PadLeft(10));
         }
 
         public static void Atividade11()
@@ -351,6 +369,12 @@ namespace Matrizes
             /// crie uma nova matriz resultante da divisão dos elementos da matriz A pela soma dos seus indices.
             /// 
 
+            double[,] matrizA = leMatrizDouble(3, 3), matrizB = new double[3, 3];
+
+            for (int i = 0; i < matrizA.GetLength(0); i++)
+                for (int j = 0; j < matrizA.GetLength(1); j++)
+                    if (i != 0 || j != 0)
+                        matrizB[i, j] = matrizA[i, j] / (i + j);
         }
 
         public static void Atividade12()
@@ -360,6 +384,12 @@ namespace Matrizes
             /// e em seguida mostre na tela apenas os valores cuja soma dos índices (i+j) seja um número par.
             /// 
 
+            int[,] matriz = leMatrizInt(4, 3);
+
+            for (int i = 0; i < matriz.GetLength(0); i++)
+                for (int j = 0; j < matriz.GetLength(1); j++)
+                    if ((i + j) % 2 == 0)
+                        Console.WriteLine(matriz[i, j]);
         }
 
         public static void Atividade13()
@@ -369,6 +399,19 @@ namespace Matrizes
             /// e verifique se a soma dos elementos da diagonal principal é igual a soma dos elementos da diagonal secundária.
             /// 
 
+            int[,] matriz = leMatrizInt(3, 3);
+            int somaDiagonalPrincipal = 0, somaDiagonalSecundaria = 0;
+
+            for (int i = 0; i < matriz.GetLength(0); i++)
+                for (int j = 0; j < matriz.GetLength(1); j++)
+                {
+                    if (i == j)
+                        somaDiagonalPrincipal += matriz[i, j];
+                    if (i + j == matriz.GetLength(0) - 1)
+                        somaDiagonalSecundaria += matriz[i, j];
+                }
+
+            Console.WriteLine("Soma dos elementos das diagonais é " + ((somaDiagonalPrincipal == somaDiagonalSecundaria) ? "igual" : "diferente"));
         }
 
         public static void Atividade14()
@@ -379,6 +422,7 @@ namespace Matrizes
             /// são os mesmos da diagonalsecundária(direita pra esquerda).
             /// 
 
+            Atividade13(); // heh
         }
 
         public static void Atividade15()
@@ -388,6 +432,13 @@ namespace Matrizes
             /// Mostrar a matriz resultante.
             /// 
 
+            int[,] matrizA = leMatrizInt(4, 4), matrizB = leMatrizInt(4, 4), matrizC = new int[4, 4];
+
+            for (int i = 0; i < matrizC.GetLength(0); i++)
+                for (int j = 0; j < matrizC.GetLength(1); j++)
+                    matrizC[i, j] = matrizA[i, j] + matrizB[i, j];
+
+            mostraMatrizInt(matrizC);
         }
 
         public static void Atividade16()
@@ -397,6 +448,16 @@ namespace Matrizes
             /// Transpor uma matriz significa transformar suas linhas em colunas e vice-versa.
             /// 
 
+            int[,] matriz = leMatrizInt(3, 4), matrizTransposta = new int[4, 3];
+
+            for (int i = 0; i < matriz.GetLength(0); i++)
+                for (int j = 0; j < matriz.GetLength(1); j++)
+                    matrizTransposta[j, i] = matriz[i, j];
+
+
+            mostraMatrizInt(matriz);
+            Console.WriteLine();
+            mostraMatrizInt(matrizTransposta);
         }
 
         public static void Atividade17()
@@ -407,6 +468,27 @@ namespace Matrizes
             /// Escreva também a linha e a coluna onde foi encontrado.
             /// 
 
+            int[,] matriz = leMatrizInt(3, 3);
+            int buscaMinimax = int.MinValue, linha = 0, coluna = 0;
+
+
+            for (int i = 0; i < matriz.GetLength(0); i++)
+                for (int j = 0; j < matriz.GetLength(1); j++)
+                    if (buscaMinimax < matriz[i, j])
+                    {
+                        buscaMinimax = matriz[i, j];
+                        linha = i;
+                    }
+
+            for (int j = 0; j < matriz.GetLength(1); j++)
+                if (buscaMinimax > matriz[linha, j])
+                {
+                    buscaMinimax = matriz[linha, j];
+                    coluna = j;
+                }
+
+            mostraMatrizInt(matriz);
+            Console.WriteLine($"Minimax: {buscaMinimax}\nLinha: {linha + 1}\nColuna: {coluna + 1}");
         }
     }
 }
