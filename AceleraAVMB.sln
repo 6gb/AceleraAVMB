@@ -19,9 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Email", "Arquivos\Email\Ema
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Album", "Arquivos\Album\Album.csproj", "{25FDD248-B326-40DA-9E29-FB389A144A02}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Desafios", "Desafios", "{7A87E260-4674-4447-A561-F04F6F32B8FD}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JogoDaVelha", "Desafios\JogoDaVelha\JogoDaVelha.csproj", "{D76FD6B4-952B-42A8-9A8E-A116E57168A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JogoDaVelha", "JogoDaVelha\JogoDaVelha.csproj", "{D76FD6B4-952B-42A8-9A8E-A116E57168A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
