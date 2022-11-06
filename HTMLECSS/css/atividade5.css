@@ -1,0 +1,21 @@
+div {
+    background-color: #B5C0AF;
+    width: 650px;
+    height: 235px;
+}
+
+img {
+    width: 300px;
+    margin: 5px;
+}
+
+p {
+    color: #fff;
+    width: 350px;
+    font-family: sans-serif;
+    position: absolute;
+    left: 315px;
+    top: -5px;
+    font-size: 14px;
+    line-height: 15px;
+}

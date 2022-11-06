@@ -1,0 +1,4 @@
+#div1, .esquerda.cima { background-color: blue; }
+#div2, .esquerda.baixo { background-color: red; }
+#div3, .direita.baixo { background-color: green; }
+#div4, .direita.cima { background-color: purple; }

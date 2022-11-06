@@ -1,0 +1,9 @@
+div {
+    padding-block: 1em;
+    position: absolute;
+}
+
+.esquerda { left: 0; }
+.direita { right: 0; }
+.cima { top: 0; }
+.baixo { bottom: 0; }

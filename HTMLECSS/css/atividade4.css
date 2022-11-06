@@ -1,0 +1,19 @@
+ul {
+    border: 0.1em solid green;
+    padding-inline: 0.2em;
+    width: 10em;
+    list-style: none;
+}
+
+li {
+    color: yellow;
+    background-color: gray;
+    margin-block: 0.2em;
+    padding-left: 1em;
+    padding-top: 0.5em;
+}
+
+li:hover span {
+    color: gray;
+    background-color: yellow;
+}
