@@ -1,5 +1,5 @@
-var atividade1 = document.getElementById("Atividade1");
-var atividade2 = document.getElementById("Atividade2");
+var atividade1 = document.getElementById("Atividade1Aula");
+var atividade2 = document.getElementById("Atividade2Aula");
 
 for (let i = 1; i < 10; i++)
     if (i % 2 !== 0) {
