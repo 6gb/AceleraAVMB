@@ -1,0 +1,10 @@
+div {
+    padding-block: 1.5em;
+    padding-inline: 0.5em;
+    margin-block: 0.5em;
+}
+
+#div1 { background-color: blue; }
+#div2 { background-color: red; }
+#div3 { background-color: green; }
+#div4 { background-color: purple; }

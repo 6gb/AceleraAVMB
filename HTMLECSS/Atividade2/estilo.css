@@ -1,0 +1,13 @@
+div {
+    padding-block: 1.5em;
+    position: absolute;
+}
+
+.esquerda { left: 0; }
+.direita { right: 0; }
+.cima { top: 0; }
+.baixo { bottom: 0; }
+.esquerda.cima { background-color: blue; }
+.esquerda.baixo { background-color: red; }
+.direita.baixo { background-color: green; }
+.direita.cima { background-color: purple; }
