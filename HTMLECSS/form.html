@@ -2,24 +2,30 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
-        <title>compra de bolo</title>
+        <title>Aguashop</title>
+        <link rel="stylesheet" href="css/estilo.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bebas+Neue&effect=3d">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville&effect=neon">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>vendemos bolo</h1>
-        <p>compre nossos bolo</p>
-        <form name="compra" action="bolo.html" method="POST">
-            <label for="bolo">escolha o bolo:</label><br>
-            <select id="bolo" name="bolo">
-                <option value="caro">bolo caro</option>
-                <option value="menosCaro">bolo menos caro</option>
-                <option value="barato">bolo barato</option>
-            </select>
-            <br>
+        <header><h1 class="font-effect-3d">COMPRE ÁGUA</h1></header>
+        
+        <section>
+            <form name="compra" action="agua.html" method="POST">
+                <select id="marca" name="marca" required>
+                    <option value="" selected disabled>selecione a marca</option>
+                    <option value="dreamstime">dreamstime</option>
+                    <option value="alamy">alamy</option>
+                    <option value="getty">getty</option>
+                </select>
+                <br>
+                <input type="text" id="cartao" name="cartao" placeholder="informe seu cartão" required><br>
+                <input id="submit" type="submit" value="comprar"><br>
+            </form>
+        </section>
 
-            <label for="cartao">passa seu cartao parça:</label><br>
-            <input type="text" id="cartao" name="cartao"><br>
-            <input type="submit" value="agora vc vai compra o bolo"><br>
-        </form>
-        <a href="index.html">clique pra volta</a>
+        <footer><a href="index.html" class="font-effect-neon">Clique para voltar</a></footer>
     </body>
 </html>
