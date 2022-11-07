@@ -2,6 +2,7 @@ a { text-decoration: none; }
 h1 { font-family: 'Bebas Neue', serif; }
 img { filter: blur(0.3rem); }
 form { margin: 0 auto; }
+header, footer { text-align: center; }
 aside#l { float: left; }
 aside#r { float: right; }
 #submit { background-color: #aae; }
@@ -20,6 +21,21 @@ body {
     font-size: xx-large;
     background-image: url("../img/bg.avif");
     color: #fff;
+}
+
+@media screen and (max-width: 400px) {
+    body { font-size: medium; }
+    img { width: 100px; }
+}
+
+@media screen and (min-width: 400px) and (max-width: 600px) {
+    body { font-size: large; }
+    img { width: 150px; }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1100px) {
+    body { font-size: x-large; }
+    img { width: 200px; }
 }
 
 header, footer, section {

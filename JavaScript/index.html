@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Atividades JavaScript</title>
+        <script src="functions.js"></script>
     </head>
     <style>
         h1 { font-size: 30px; }
@@ -25,8 +26,7 @@
                 no máximo, 5 alertas.<br>
                 A cada iteração, apresentar o número do alerta.
                 </h2>
-                <button id="botao5Alertas" onclick="cliqueBotao5Alertas()">Botão</button><br><br>
-                <button id="botaoTesteFuncaoAnonima" onclick="(()=>alert('Funcionou'))()">Botão para teste de função anônima</button>
+                <button id="botao5Alertas" onclick="cliqueBotao5Alertas()">Botão</button>
             </div>
         </div>
         <div id="AtividadesAdicionais">
@@ -86,7 +86,7 @@
                     <input class="Atividade5" type="checkbox" onclick="habilitaOuDesabilita()">
                     <input class="Atividade5" type="checkbox" onclick="habilitaOuDesabilita()">
                     <input class="Atividade5" type="checkbox" onclick="habilitaOuDesabilita()">
-                    <button class="Atividade5" type="button" disabled>Clicável?</button>
+                    <button class="Atividade5" type="button" title="Não" onclick="(()=>alert('Sim'))()" disabled>Clicável?</button>
                 </form>
             </div>
             <div id="Atividade6">
@@ -118,6 +118,6 @@
                 </h2>
             </div>
         </div>
-        <script src="scripts.js"></script>
+        <script src="scriptsIniciais.js"></script>
     </body>
 </html>
