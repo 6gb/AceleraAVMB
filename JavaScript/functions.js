@@ -1,16 +1,12 @@
-function mudaCorDeFundoPara(element, cor) {
+function mudaCorDeFundo(element, cor) {
     element.style.backgroundColor = cor
 }
 
-
-function mudaCorDaFontePara(element, cor) {
+function mudaCorDaFonte(element, cor) {
     element.style.color = cor
 }
 
-function escondeOuMostra(classe, tipo) {
-    let element = document.querySelector(`${tipo}.${classe}`)
-    let button = document.querySelector(`button.${classe}`)
-
+function escondeOuMostra(element, button) {
     if (element.hidden) {
         element.hidden = false
         button.innerText = "Esconder"
@@ -34,6 +30,35 @@ function habilitaOuDesabilita() {
     }
 }
 
-function mudaTamanhoDeFonte(element, i) {
-    
+function mudaTamanhoDaFonte(element, i) {
+    element.style.fontSize = element.style.fontSize === ''
+        ? `${100 + i}%` : `${parseInt(element.style.fontSize.replace('%', '')) + i}%`
+}
+
+function emMaiusculo(element) {
+    element.innerText = element.innerText.toUpperCase()
+}
+
+function emMinusculo(element) {
+    element.innerText = element.innerText.toLowerCase()
+}
+
+function todosCamposPreenchidos(campos) {
+    preenchidos = 0
+    campos.forEach(campo => preenchidos += (campo.value) ? 1 : 0)
+    return preenchidos === campos.length
+}
+
+function senhasSaoIguais(senhas) {
+    return senhas[0].value === senhas[1].value
+}
+
+function senhaValida(senha) {
+    return senha.value.length >= 6 && senha.value.length <= 10
+}
+
+function validarFormulario(element) {
+    campos = element.querySelectorAll("input")
+    senhas = element.querySelectorAll("input[type='password']")
+    element.querySelector("button").disabled = !(todosCamposPreenchidos(campos) && senhasSaoIguais(senhas) && senhaValida(senhas[1]))
 }
