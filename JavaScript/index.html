@@ -9,63 +9,106 @@
         h2 { font-size: 20px; }
     </style>
     <body>
-        <div id = "AtividadesAula">
+        <div id="AtividadesAula">
             <h1>Atividades iniciais</h1>
-            <div id = "Atividade1Aula">
+            <div id="Atividade1Aula">
                 <h2>1. Escreva um código que mostre os números ímpares entre 1 e 10.</h2>
-                <p id = "Resposta1Aula"></p>
+                <p id="Resposta1Aula"></p>
             </div>
-            <div id = "Atividade2Aula">
+            <div id="Atividade2Aula">
                 <h2>2. Escreva um código que calcule a soma de 1 até 100 (PS: a resposta é 5050)</h2>
             </div>
-            <div id = "Atividade3Aula">
+            <div id="Atividade3Aula">
                 <h2>
                 Desafio: “Executar função ao clique do botão”:<br>
                 executar um alerta cada vez que um botão seja acionado até,&nbsp;
                 no máximo, 5 alertas.<br>
                 A cada iteração, apresentar o número do alerta.
                 </h2>
-                <button id = "botao5Alertas" onclick="cliqueBotao5Alertas()">Botão</button><br><br>
-                <button id = "botaoTesteFuncaoAnonima" onclick="(()=>alert('Funcionou'))()">Botão para teste de função anônima</button>
+                <button id="botao5Alertas" onclick="cliqueBotao5Alertas()">Botão</button><br><br>
+                <button id="botaoTesteFuncaoAnonima" onclick="(()=>alert('Funcionou'))()">Botão para teste de função anônima</button>
             </div>
         </div>
-        <div id = "AtividadesAdicionais">
+        <div id="AtividadesAdicionais">
             <h1>Atividades adicionais</h1>
-            <div id = "Atividades1">
+            <div id="Atividade1">
                 <h2>1 - Crie um formulário com 4 botões que, ao clicar em cada um, altere a cor do plano de fundo da página para vermelho, verde, azul e amarelo, respectivamente.</h2>
+                <form>
+                    <button type="button" onclick="mudaCorDeFundoPara('red')">Vermelho</button>
+                    <button type="button" onclick="mudaCorDeFundoPara('green')">Verde</button>
+                    <button type="button" onclick="mudaCorDeFundoPara('blue')">Azul</button>
+                    <button type="button" onclick="mudaCorDeFundoPara('yellow')">Amarelo</button>
+                    <button type="button" onclick="mudaCorDeFundoPara('white')">Reset</button>
+                </form>
             </div>
-            <div id = "Atividades2">
+            <div id="Atividade2">
                 <h2>2 - Crie uma página com 4 links (tag &lt;a&gt;), cada um representando o nome de uma cor, que, utilizando o evento onmouseover altere a cor do plano de fundo para cor correspondente.</h2>
+                <a href="" onmouseover="mudaCorDeFundoPara('red')">Vermelho</a>
+                <a href="" onmouseover="mudaCorDeFundoPara('green')">Verde</a>
+                <a href="" onmouseover="mudaCorDeFundoPara('blue')">Azul</a>
+                <a href="" onmouseover="mudaCorDeFundoPara('yellow')">Amarelo</a>
+                <a href="" onmouseover="mudaCorDeFundoPara('white')">Reset</a>
             </div>
-            <div id = "Atividades3">
+            <div id="Atividade3">
                 <h2>3 - Crie uma página com uma lista (select - RadioButton) com 4 opções de cores. Ao selecionar uma opção de cor, altere o plano de fundo da página para a cor específica.</h2>
+
+                <input type="radio" id="red" name="corDeFundo" onclick="mudaCorDeFundoPara('red')">
+                <label for="red">Vermelho</label>
+                
+                <input type="radio" id="green" name="corDeFundo" onclick="mudaCorDeFundoPara('green')">
+                <label for="green">Verde</label>
+                
+                <input type="radio" id="blue" name="corDeFundo" onclick="mudaCorDeFundoPara('blue')">
+                <label for="blue">Azul</label>
+                
+                <input type="radio" id="yellow" name="corDeFundo" onclick="mudaCorDeFundoPara('yellow')">
+                <label for="yellow">Amarelo</label>
+                
+                <input type="radio" id="white" name="corDeFundo" onclick="mudaCorDeFundoPara('white')">
+                <label for="white">Reset</label>
+                <br><br>
+                <select>
+                    <option onclick="mudaCorDeFundoPara('red')">Vermelho</option>
+                    <option onclick="mudaCorDeFundoPara('green')">Verde</option>
+                    <option onclick="mudaCorDeFundoPara('blue')">Azul</option>
+                    <option onclick="mudaCorDeFundoPara('yellow')">Amarelo</option>
+                    <option onclick="mudaCorDeFundoPara('white')">Reset</option>
+                </select>
             </div>
-            <div id = "Atividades4">
+            <div id="Atividade4">
                 <h2>4 – Crie um parágrafo (&lt;p&gt;) com um texto como conteúdo. Adicione um botão que, ao ser clicado, oculte ou mostre o texto do parágrafo.</h2>
+                <p class="Atividade4">4 – Crie um parágrafo (&lt;p&gt;) com um texto como conteúdo. Adicione um botão que, ao ser clicado, oculte ou mostre o texto do parágrafo.</p>
+                <button class="Atividade4" onclick="escondeOuMostra('Atividade4', 'p')">Esconder</button>
             </div>
-            <div id = "Atividades5">
+            <div id="Atividade5">
                 <h2>5 – Crie um formulário de seleção de itens com checkbox. O formulário deve possuir um botão desabilitado. O botão só se torna clicável quando tiver pelo menos 2 checkboxs marcado.</h2>
+                <form>
+                    <input class="Atividade5" type="checkbox" onclick="habilitaOuDesabilita()">
+                    <input class="Atividade5" type="checkbox" onclick="habilitaOuDesabilita()">
+                    <input class="Atividade5" type="checkbox" onclick="habilitaOuDesabilita()">
+                    <button class="Atividade5" type="button" disabled>Clicável?</button>
+                </form>
             </div>
-            <div id = "Atividades6">
+            <div id="Atividade6">
                 <h2>
                     6 – Crie um parágrafo com um texto como conteúdo. Crie 4 botões.&nbsp;
                     Dois para trocar a cor da fonte, de branco para preto e vice-versa e outros dois para fazer o mesmo com o fundo do parágrafo.&nbsp;
                     Use divs se julgar necessário.
                 </h2>
             </div>
-            <div id = "Atividades7">
+            <div id="Atividade7">
                 <h2>7 – Crie um botão + (mais) e outro – (menos) na mesma página do exercício anterior. Esses botões aumentam e diminuem o tamanho da fonte, respectivamente.</h2>
             </div>
-            <div id = "Atividades8">
+            <div id="Atividade8">
                 <h2>8 – Ainda continuando no exercício 6, faça um botão que transforme todo o texto do parágrafo em maiúscula, e outro em minúscula.</h2>
             </div>
-            <div id = "Atividades9">
+            <div id="Atividade9">
                 <h2>
                     9 - Crie um formulário com os campos para cadastrar o usuário de um sistema (login, senha e confirmar senha).&nbsp;
                     Permita que a página seja submetida apenas se todos os campos estiverem preenchidos, se os campos senha e confirma senha forem iguais e a senha possuir entre 6 e 10 caracteres.
                 </h2>
             </div>
-            <div id = "Atividades10">
+            <div id="Atividade10">
                 <h2>
                     10 - Crie um formulário de cadastro de cliente.&nbsp;
                     O formulário deve conter os campos Nome (text), Pessoa (Física/Jurídica– radio), CPF (text), CNPJ (text), data de nascimento, endereço (text), cep (text), telefone (text), email.&nbsp;

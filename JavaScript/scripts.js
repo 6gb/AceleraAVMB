@@ -26,3 +26,24 @@ function cliqueBotao5Alertas() {
     if (contagemAlertas >= 5)
         document.getElementById("botao5Alertas").disabled = true
 }
+
+function mudaCorDeFundoPara(cor) {
+    document.body.style.backgroundColor = cor;
+}
+
+function escondeOuMostra(classe, tipo) {
+    let element = document.querySelector(`${tipo}.${classe}`)
+    let button = document.querySelector(`button.${classe}`)
+
+    if (element.hidden) {
+        element.hidden = false
+        button.innerText = "Esconder"
+    } else {
+        element.hidden = true;
+        button.innerText = "Mostrar"
+    }
+}
+
+function habilitaOuDesabilita() {
+    document.querySelector("button.Atividade5").disabled = document.querySelectorAll("input.Atividade5:checked").length < 2
+}
