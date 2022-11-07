@@ -26,7 +26,7 @@
                 no máximo, 5 alertas.<br>
                 A cada iteração, apresentar o número do alerta.
                 </h2>
-                <button id="botao5Alertas" onclick="cliqueBotao5Alertas()">Botão</button>
+                <button onclick="cliqueBotao5Alertas()">Botão</button>
             </div>
         </div>
         <div id="AtividadesAdicionais">
@@ -34,45 +34,45 @@
             <div id="Atividade1">
                 <h2>1 - Crie um formulário com 4 botões que, ao clicar em cada um, altere a cor do plano de fundo da página para vermelho, verde, azul e amarelo, respectivamente.</h2>
                 <form>
-                    <button type="button" onclick="mudaCorDeFundoPara('red')">Vermelho</button>
-                    <button type="button" onclick="mudaCorDeFundoPara('green')">Verde</button>
-                    <button type="button" onclick="mudaCorDeFundoPara('blue')">Azul</button>
-                    <button type="button" onclick="mudaCorDeFundoPara('yellow')">Amarelo</button>
-                    <button type="button" onclick="mudaCorDeFundoPara('white')">Reset</button>
+                    <button type="button" onclick="mudaCorDeFundoPara(body, 'red')">Vermelho</button>
+                    <button type="button" onclick="mudaCorDeFundoPara(body, 'green')">Verde</button>
+                    <button type="button" onclick="mudaCorDeFundoPara(body, 'blue')">Azul</button>
+                    <button type="button" onclick="mudaCorDeFundoPara(body, 'yellow')">Amarelo</button>
+                    <button type="button" onclick="mudaCorDeFundoPara(body, 'white')">Reset</button>
                 </form>
             </div>
             <div id="Atividade2">
                 <h2>2 - Crie uma página com 4 links (tag &lt;a&gt;), cada um representando o nome de uma cor, que, utilizando o evento onmouseover altere a cor do plano de fundo para cor correspondente.</h2>
-                <a href="" onmouseover="mudaCorDeFundoPara('red')">Vermelho</a>
-                <a href="" onmouseover="mudaCorDeFundoPara('green')">Verde</a>
-                <a href="" onmouseover="mudaCorDeFundoPara('blue')">Azul</a>
-                <a href="" onmouseover="mudaCorDeFundoPara('yellow')">Amarelo</a>
-                <a href="" onmouseover="mudaCorDeFundoPara('white')">Reset</a>
+                <a href="" onmouseover="mudaCorDeFundoPara(body, 'red')">Vermelho</a>
+                <a href="" onmouseover="mudaCorDeFundoPara(body, 'green')">Verde</a>
+                <a href="" onmouseover="mudaCorDeFundoPara(body, 'blue')">Azul</a>
+                <a href="" onmouseover="mudaCorDeFundoPara(body, 'yellow')">Amarelo</a>
+                <a href="" onmouseover="mudaCorDeFundoPara(body, 'white')">Reset</a>
             </div>
             <div id="Atividade3">
                 <h2>3 - Crie uma página com uma lista (select - RadioButton) com 4 opções de cores. Ao selecionar uma opção de cor, altere o plano de fundo da página para a cor específica.</h2>
 
-                <input type="radio" id="red" name="corDeFundo" onclick="mudaCorDeFundoPara('red')">
+                <input type="radio" id="red" name="corDeFundo" onclick="mudaCorDeFundoPara(body, 'red')">
                 <label for="red">Vermelho</label>
                 
-                <input type="radio" id="green" name="corDeFundo" onclick="mudaCorDeFundoPara('green')">
+                <input type="radio" id="green" name="corDeFundo" onclick="mudaCorDeFundoPara(body, 'green')">
                 <label for="green">Verde</label>
                 
-                <input type="radio" id="blue" name="corDeFundo" onclick="mudaCorDeFundoPara('blue')">
+                <input type="radio" id="blue" name="corDeFundo" onclick="mudaCorDeFundoPara(body, 'blue')">
                 <label for="blue">Azul</label>
                 
-                <input type="radio" id="yellow" name="corDeFundo" onclick="mudaCorDeFundoPara('yellow')">
+                <input type="radio" id="yellow" name="corDeFundo" onclick="mudaCorDeFundoPara(body, 'yellow')">
                 <label for="yellow">Amarelo</label>
                 
-                <input type="radio" id="white" name="corDeFundo" onclick="mudaCorDeFundoPara('white')">
+                <input type="radio" id="white" name="corDeFundo" onclick="mudaCorDeFundoPara(body, 'white')">
                 <label for="white">Reset</label>
                 <br><br>
                 <select>
-                    <option onclick="mudaCorDeFundoPara('red')">Vermelho</option>
-                    <option onclick="mudaCorDeFundoPara('green')">Verde</option>
-                    <option onclick="mudaCorDeFundoPara('blue')">Azul</option>
-                    <option onclick="mudaCorDeFundoPara('yellow')">Amarelo</option>
-                    <option onclick="mudaCorDeFundoPara('white')">Reset</option>
+                    <option onclick="mudaCorDeFundoPara(body, 'red')">Vermelho</option>
+                    <option onclick="mudaCorDeFundoPara(body, 'green')">Verde</option>
+                    <option onclick="mudaCorDeFundoPara(body, 'blue')">Azul</option>
+                    <option onclick="mudaCorDeFundoPara(body, 'yellow')">Amarelo</option>
+                    <option onclick="mudaCorDeFundoPara(body, 'white')">Reset</option>
                 </select>
             </div>
             <div id="Atividade4">
@@ -83,10 +83,10 @@
             <div id="Atividade5">
                 <h2>5 – Crie um formulário de seleção de itens com checkbox. O formulário deve possuir um botão desabilitado. O botão só se torna clicável quando tiver pelo menos 2 checkboxs marcado.</h2>
                 <form>
-                    <input class="Atividade5" type="checkbox" onclick="habilitaOuDesabilita()">
-                    <input class="Atividade5" type="checkbox" onclick="habilitaOuDesabilita()">
-                    <input class="Atividade5" type="checkbox" onclick="habilitaOuDesabilita()">
-                    <button class="Atividade5" type="button" title="Não" onclick="(()=>alert('Sim'))()" disabled>Clicável?</button>
+                    <input type="checkbox" onclick="habilitaOuDesabilita()">
+                    <input type="checkbox" onclick="habilitaOuDesabilita()">
+                    <input type="checkbox" onclick="habilitaOuDesabilita()">
+                    <button type="button" title="Não" onclick="(()=>alert('Sim'))()" disabled>Clicável?</button>
                 </form>
             </div>
             <div id="Atividade6">
@@ -95,9 +95,21 @@
                     Dois para trocar a cor da fonte, de branco para preto e vice-versa e outros dois para fazer o mesmo com o fundo do parágrafo.&nbsp;
                     Use divs se julgar necessário.
                 </h2>
+                <p>
+                    6 – Crie um parágrafo com um texto como conteúdo. Crie 4 botões.&nbsp;
+                    Dois para trocar a cor da fonte, de branco para preto e vice-versa e outros dois para fazer o mesmo com o fundo do parágrafo.&nbsp;
+                    Use divs se julgar necessário.
+                </p>
+                <button onclick="mudaCorDaFontePara(document.querySelector('#Atividade6>p'), 'white')">Fonte branca</button>
+                <button onclick="mudaCorDaFontePara(document.querySelector('#Atividade6>p'), 'black')">Fonte preta</button>
+                <button onclick="mudaCorDeFundoPara(document.querySelector('#Atividade6>p'), 'white')">Fundo branca</button>
+                <button onclick="mudaCorDeFundoPara(document.querySelector('#Atividade6>p'), 'black')">Fundo preto</button>
             </div>
             <div id="Atividade7">
                 <h2>7 – Crie um botão + (mais) e outro – (menos) na mesma página do exercício anterior. Esses botões aumentam e diminuem o tamanho da fonte, respectivamente.</h2>
+                <p>7 – Crie um botão + (mais) e outro – (menos) na mesma página do exercício anterior. Esses botões aumentam e diminuem o tamanho da fonte, respectivamente.</p>
+                <button onclick="mudaTamanhoDeFonte(document.querySelector('#Atividade7>p'), 1)">+</button>
+                <button onclick="mudaTamanhoDeFonte(document.querySelector('#Atividade7>p'), -1)">-</button>
             </div>
             <div id="Atividade8">
                 <h2>8 – Ainda continuando no exercício 6, faça um botão que transforme todo o texto do parágrafo em maiúscula, e outro em minúscula.</h2>

@@ -18,3 +18,12 @@ respostaSoma.innerText = soma;
 atividade2.appendChild(respostaSoma);
 
 var contagemAlertas = 0;
+
+function cliqueBotao5Alertas() {
+    contagemAlertas++
+    alert(contagemAlertas)
+
+    if (contagemAlertas >= 5)
+        document.querySelector("#Atividade3Aula>button").disabled = true
+        /*document.querySelector("Atividade3Aula").getElementsByTagName("button").disabled = true */
+}

@@ -1,13 +1,10 @@
-function cliqueBotao5Alertas() {
-    contagemAlertas++
-    alert(contagemAlertas)
-
-    if (contagemAlertas >= 5)
-        document.getElementById("botao5Alertas").disabled = true
+function mudaCorDeFundoPara(element, cor) {
+    element.style.backgroundColor = cor
 }
 
-function mudaCorDeFundoPara(cor) {
-    document.body.style.backgroundColor = cor;
+
+function mudaCorDaFontePara(element, cor) {
+    element.style.color = cor
 }
 
 function escondeOuMostra(classe, tipo) {
@@ -24,8 +21,9 @@ function escondeOuMostra(classe, tipo) {
 }
 
 function habilitaOuDesabilita() {
-    let checkboxes = document.querySelectorAll("input.Atividade5:checked")
-    let botaoClicavel = document.querySelector("button.Atividade5")
+    let atividade5 = document.querySelector("#Atividade5")
+    let checkboxes = atividade5.querySelectorAll("input:checked")
+    let botaoClicavel = atividade5.querySelector("button")
 
     if (checkboxes.length >= 2) {
         botaoClicavel.disabled = false;
@@ -34,4 +32,8 @@ function habilitaOuDesabilita() {
         botaoClicavel.disabled = true;
         botaoClicavel.title = "Não";
     }
+}
+
+function mudaTamanhoDeFonte(element, i) {
+    
 }
