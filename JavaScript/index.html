@@ -94,9 +94,9 @@
                     O botão só se torna clicável quando tiver pelo menos 2 checkboxs marcado.
                 </h2>
                 <form>
-                    <input type="checkbox" onclick="habilitaOuDesabilita()">
-                    <input type="checkbox" onclick="habilitaOuDesabilita()">
-                    <input type="checkbox" onclick="habilitaOuDesabilita()">
+                    <input type="checkbox" onclick="habilitaOuDesabilitaBotao(this.form)">
+                    <input type="checkbox" onclick="habilitaOuDesabilitaBotao(this.form)">
+                    <input type="checkbox" onclick="habilitaOuDesabilitaBotao(this.form)">
                     <button type="button" title="Não" onclick="(()=>alert('Sim'))()" disabled>Clicável?</button>
                 </form>
             </div>
@@ -141,6 +141,7 @@
                     faça um botão que transforme todo o texto do parágrafo em maiúscula,
                     e outro em minúscula.
                 </p>
+                <!--<button onclick="emMaiusculo(this.parentElement.getElementsByTagName('p')[0])">Maiúscula</button>-->
                 <button onclick="emMaiusculo(document.querySelector('#Atividade8>p'))">Maiúscula</button>
                 <button onclick="emMinusculo(document.querySelector('#Atividade8>p'))">Minúscula</button>
             </div>
@@ -152,11 +153,11 @@
                 </h2>
                 <form>
                     <label for="login">Login</label>
-                    <input type="text" onchange="validarFormulario(document.querySelector('#Atividade9>form'))" id="login" required>
+                    <input type="text" onchange="validarFormulario(this.form)" id="login" required>
                     <label for="senha">Senha</label>
-                    <input type="password" onchange="validarFormulario(document.querySelector('#Atividade9>form'))" id="senha" required>
+                    <input type="password" onchange="validarFormulario(this.form)" id="senha" required>
                     <label for="confirmacaoDeSenha">Confirme a senha</label>
-                    <input type="password" onchange="validarFormulario(document.querySelector('#Atividade9>form'))" id="confirmacaoDeSenha" required>
+                    <input type="password" onchange="validarFormulario(this.form)" id="confirmacaoDeSenha" required>
                     <button type="submit" disabled>Entrar</button>
                 </form>
             </div>
@@ -174,7 +175,7 @@
                         <legend>Nome</legend>
                         <input type="text">
                     </fieldset>
-                    <fieldset onchange="pessoaFisicaOuJuridica(document.querySelector('#Atividade10>form'))">
+                    <fieldset onchange="pessoaFisicaOuJuridica(this.form)">
                         <legend>Pessoa</legend>
                         <input type="radio" name="pessoa" id="fisica">
                         <label for="fisica">Física</label>
@@ -185,14 +186,14 @@
                     </fieldset>
                     <fieldset id="dataDeNascimento" hidden disabled>
                         <legend>Data de nascimento</legend>
-                        <input type="text">
+                        <input onkeydown="apenasNumeros(event)" type="text">
                     </fieldset>
                     <fieldset>
                         <legend>Local</legend>
                         <label for="endereco">Endereço</label>
                         <input type="text" id="endereco"><br>
                         <label for="cep">CEP</label>
-                        <input onkeypress="apenasNumeros(this)" type="text" id="cep">
+                        <input onkeydown="apenasNumeros(event)" type="text" id="cep">
                     </fieldset>
                     <fieldset>
                         <legend>Contato</legend>

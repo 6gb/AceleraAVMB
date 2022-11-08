@@ -7,6 +7,8 @@ function mudaCorDaFonte(element, cor) {
 }
 
 function escondeOuMostra(element, button) {
+    
+
     if (element.hidden) {
         element.hidden = false
         button.innerText = "Esconder"
@@ -16,10 +18,9 @@ function escondeOuMostra(element, button) {
     }
 }
 
-function habilitaOuDesabilita() {
-    let atividade5 = document.querySelector("#Atividade5")
-    let checkboxes = atividade5.querySelectorAll("input:checked")
-    let botaoClicavel = atividade5.querySelector("button")
+function habilitaOuDesabilitaBotao(form) {
+    let checkboxes = form.querySelectorAll("input:checked")
+    let botaoClicavel = form.querySelector("button")
 
     if (checkboxes.length >= 2) {
         botaoClicavel.disabled = false;
@@ -64,7 +65,6 @@ function validarFormulario(element) {
 }
 
 function pessoaFisicaOuJuridica(form) {
-    /*pessoa.querySelectorAll("input[type='radio']")*/
     if (form.querySelector("#fisica:checked")) {
         form.querySelector("#cpf").disabled = false
         form.querySelector("#cpf").hidden = false
@@ -83,6 +83,9 @@ function pessoaFisicaOuJuridica(form) {
     }
 }
 
-function apenasNumeros(campo) {
-    campo.value.includes()
+function apenasNumeros(event) {
+    key = event.keyCode
+    /* '0' = 95 e 48, '9' = 57 e 106, 'Backspace' = 8, 'Tab' = 9, 'Delete' = 46 */
+    if ((key < 96 || key > 105) && (key < 48 || key > 57) && key != 8 && key != 9 && key != 46 )
+        event.preventDefault();
 }
