@@ -170,27 +170,37 @@
                     O campo CEP também só deve aceitar número
                 </h2>
                 <form>
-                    <label for="nome">Nome</label>
-                    <input type="text" id="nome"><br>
-                    <label for="pessoa">Pessoa</label><br>
-                    <input type="radio" name="pessoa" id="fisica">
-                    <label for="fisica">Física</label><br>
-                    <input type="radio" name="pessoa" id="juridica">
-                    <label for="juridica">Jurídica</label><br>
-                    <label for="cpf">CPF</label>
-                    <input type="text" id="cpf"><br>
-                    <label for="cnpj">CNPJ</label>
-                    <input type="text" id="cnpj"><br>
-                    <label for="dataDeNascimento">Data de nascimento</label>
-                    <input type="text" id="dataDeNascimento"><br>
-                    <label for="endereco">Endereço</label>
-                    <input type="text" id="endereco"><br>
-                    <label for="cep">CEP</label>
-                    <input type="text" id="cep"><br>
-                    <label for="telefone">Telefone</label>
-                    <input type="text" id="telefone"><br>
-                    <label for="email">Email</label>
-                    <input type="text" id="email"><br>
+                    <fieldset id="nome">
+                        <legend>Nome</legend>
+                        <input type="text">
+                    </fieldset>
+                    <fieldset onchange="pessoaFisicaOuJuridica(document.querySelector('#Atividade10>form'))">
+                        <legend>Pessoa</legend>
+                        <input type="radio" name="pessoa" id="fisica">
+                        <label for="fisica">Física</label>
+                        <input type="text" id="cpf" placeholder="CPF" hidden disabled><br>
+                        <input type="radio" name="pessoa" id="juridica">
+                        <label for="juridica">Jurídica</label>
+                        <input type="text" id="cnpj" placeholder="CNPJ" hidden disabled>
+                    </fieldset>
+                    <fieldset id="dataDeNascimento" hidden disabled>
+                        <legend>Data de nascimento</legend>
+                        <input type="text">
+                    </fieldset>
+                    <fieldset>
+                        <legend>Local</legend>
+                        <label for="endereco">Endereço</label>
+                        <input type="text" id="endereco"><br>
+                        <label for="cep">CEP</label>
+                        <input onkeypress="apenasNumeros(this)" type="text" id="cep">
+                    </fieldset>
+                    <fieldset>
+                        <legend>Contato</legend>
+                        <label for="telefone">Telefone</label>
+                        <input type="text" id="telefone"><br>
+                        <label for="email">Email</label>
+                        <input type="text" id="email"><br>
+                    </fieldset>
                     <button type="submit">Cadastrar</button>
                 </form>
             </div>

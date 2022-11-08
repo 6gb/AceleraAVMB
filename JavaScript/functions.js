@@ -62,3 +62,27 @@ function validarFormulario(element) {
     senhas = element.querySelectorAll("input[type='password']")
     element.querySelector("button").disabled = !(todosCamposPreenchidos(campos) && senhasSaoIguais(senhas) && senhaValida(senhas[1]))
 }
+
+function pessoaFisicaOuJuridica(form) {
+    /*pessoa.querySelectorAll("input[type='radio']")*/
+    if (form.querySelector("#fisica:checked")) {
+        form.querySelector("#cpf").disabled = false
+        form.querySelector("#cpf").hidden = false
+        form.querySelector("#cnpj").disabled = true
+        form.querySelector("#cnpj").hidden = true
+        form.querySelector("#dataDeNascimento").disabled = false
+        form.querySelector("#dataDeNascimento").hidden = false
+
+    } else if (form.querySelector("#juridica:checked")) {
+        form.querySelector("#cpf").disabled = true
+        form.querySelector("#cpf").hidden = true
+        form.querySelector("#cnpj").disabled = false
+        form.querySelector("#cnpj").hidden = false
+        form.querySelector("#dataDeNascimento").disabled = true
+        form.querySelector("#dataDeNascimento").hidden = true
+    }
+}
+
+function apenasNumeros(campo) {
+    campo.value.includes()
+}
