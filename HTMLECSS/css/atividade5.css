@@ -6,14 +6,14 @@ div {
 }
 
 img {
-    width: 30dvw;
-    margin: 0.5dvw;
+    width: 30vw;
+    margin: 0.5vw;
 }
 
 p {
-    width: 32dvw;
+    width: 32vw;
     margin: 0 auto;
     color: white;
     font-family: sans-serif;
-    font-size: 1.3dvw;
+    font-size: 1.3vw;
 }
