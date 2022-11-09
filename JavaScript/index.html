@@ -35,11 +35,11 @@
                     altere a cor do plano de fundo da página para vermelho, verde, azul e amarelo, respectivamente.
                 </h2>
                 <form>
-                    <button type="button" onclick="mudaCorDeFundo(body, 'red')">Vermelho</button>
-                    <button type="button" onclick="mudaCorDeFundo(body, 'green')">Verde</button>
-                    <button type="button" onclick="mudaCorDeFundo(body, 'blue')">Azul</button>
-                    <button type="button" onclick="mudaCorDeFundo(body, 'yellow')">Amarelo</button>
-                    <button type="button" onclick="mudaCorDeFundo(body, 'white')">Reset</button>
+                    <button class="red"    type="button" onclick="mudaCorDeFundo(body, this.className)">Vermelho</button>
+                    <button class="green"  type="button" onclick="mudaCorDeFundo(body, this.className)">Verde</button>
+                    <button class="blue"   type="button" onclick="mudaCorDeFundo(body, this.className)">Azul</button>
+                    <button class="yellow" type="button" onclick="mudaCorDeFundo(body, this.className)">Amarelo</button>
+                    <button class="white"  type="button" onclick="mudaCorDeFundo(body, this.className)">Reset</button>
                 </form>
             </div>
             <div id="Atividade2">
@@ -47,34 +47,30 @@
                     2 - Crie uma página com 4 links (tag &lt;a&gt;), cada um representando o nome de uma cor, que,
                     utilizando o evento onmouseover altere a cor do plano de fundo para cor correspondente.
                 </h2>
-                <a href="" onmouseover="mudaCorDeFundo(body, 'red')">Vermelho</a>
-                <a href="" onmouseover="mudaCorDeFundo(body, 'green')">Verde</a>
-                <a href="" onmouseover="mudaCorDeFundo(body, 'blue')">Azul</a>
-                <a href="" onmouseover="mudaCorDeFundo(body, 'yellow')">Amarelo</a>
-                <a href="" onmouseover="mudaCorDeFundo(body, 'white')">Reset</a>
+                <!-- this.attributes["href"].value -->
+                <a href="red"    onmouseover="mudaCorDeFundo(body, this.getAttribute('href'))" onclick="return false">Vermelho</a>
+                <a href="green"  onmouseover="mudaCorDeFundo(body, this.getAttribute('href'))" onclick="return false">Verde</a>
+                <a href="blue"   onmouseover="mudaCorDeFundo(body, this.getAttribute('href'))" onclick="return false">Azul</a>
+                <a href="yellow" onmouseover="mudaCorDeFundo(body, this.getAttribute('href'))" onclick="return false">Amarelo</a>
+                <a href="white"  onmouseover="mudaCorDeFundo(body, this.getAttribute('href'))" onclick="return false">Reset</a>
             </div>
             <div id="Atividade3">
                 <h2>
                     3 - Crie uma página com uma lista (select - RadioButton) com 4 opções de cores.
                     Ao selecionar uma opção de cor, altere o plano de fundo da página para a cor específica.
                 </h2>
-                <input type="radio" id="red" name="corDeFundo" onclick="mudaCorDeFundo(body, 'red')">
-                <label for="red">Vermelho</label>
-                <input type="radio" id="green" name="corDeFundo" onclick="mudaCorDeFundo(body, 'green')">
-                <label for="green">Verde</label>
-                <input type="radio" id="blue" name="corDeFundo" onclick="mudaCorDeFundo(body, 'blue')">
-                <label for="blue">Azul</label>
-                <input type="radio" id="yellow" name="corDeFundo" onclick="mudaCorDeFundo(body, 'yellow')">
-                <label for="yellow">Amarelo</label>
-                <input type="radio" id="white" name="corDeFundo" onclick="mudaCorDeFundo(body, 'white')">
-                <label for="white">Reset</label>
+                <label><input class="red"    type="radio" name="corDeFundo" onclick="mudaCorDeFundo(body, this.className)">Vermelho</label>
+                <label><input class="green"  type="radio" name="corDeFundo" onclick="mudaCorDeFundo(body, this.className)">Verde</label>
+                <label><input class="blue"   type="radio" name="corDeFundo" onclick="mudaCorDeFundo(body, this.className)">Azul</label>
+                <label><input class="yellow" type="radio" name="corDeFundo" onclick="mudaCorDeFundo(body, this.className)">Amarelo</label>
+                <label><input class="white"  type="radio" name="corDeFundo" onclick="mudaCorDeFundo(body, this.className)">Reset</label>
                 <br><br>
                 <select>
-                    <option onclick="mudaCorDeFundo(body, 'red')">Vermelho</option>
-                    <option onclick="mudaCorDeFundo(body, 'green')">Verde</option>
-                    <option onclick="mudaCorDeFundo(body, 'blue')">Azul</option>
-                    <option onclick="mudaCorDeFundo(body, 'yellow')">Amarelo</option>
-                    <option onclick="mudaCorDeFundo(body, 'white')">Reset</option>
+                    <option class="red"    onclick="mudaCorDeFundo(body, this.className)">Vermelho</option>
+                    <option class="green"  onclick="mudaCorDeFundo(body, this.className)">Verde</option>
+                    <option class="blue"   onclick="mudaCorDeFundo(body, this.className)">Azul</option>
+                    <option class="yellow" onclick="mudaCorDeFundo(body, this.className)">Amarelo</option>
+                    <option class="white"  onclick="mudaCorDeFundo(body, this.className)">Reset</option>
                 </select>
             </div>
             <div id="Atividade4">
@@ -97,7 +93,7 @@
                     <input type="checkbox" onclick="habilitaOuDesabilitaBotao(this.form)">
                     <input type="checkbox" onclick="habilitaOuDesabilitaBotao(this.form)">
                     <input type="checkbox" onclick="habilitaOuDesabilitaBotao(this.form)">
-                    <button type="button" title="Não" onclick="(()=>alert('Sim'))()" disabled>Clicável?</button>
+                    <button type="button" title="Não" onclick="alert('Sim')" disabled>Clicável?</button>
                 </form>
             </div>
             <div id="Atividade6">
@@ -113,10 +109,10 @@
                     de branco para preto e vice-versa e outros dois para fazer o mesmo com o fundo do parágrafo.
                     Use divs se julgar necessário.
                 </p>
-                <button onclick="mudaCorDaFonte(document.querySelector('#Atividade6>p'), 'white')">Fonte branca</button>
-                <button onclick="mudaCorDaFonte(document.querySelector('#Atividade6>p'), 'black')">Fonte preta</button>
-                <button onclick="mudaCorDeFundo(document.querySelector('#Atividade6>p'), 'white')">Fundo branca</button>
-                <button onclick="mudaCorDeFundo(document.querySelector('#Atividade6>p'), 'black')">Fundo preto</button>
+                <button class="white" onclick="mudaCorDaFonte(document.querySelector('#Atividade6>p'), this.className)">Fonte branca</button>
+                <button class="black" onclick="mudaCorDaFonte(document.querySelector('#Atividade6>p'), this.className)">Fonte preta</button>
+                <button class="white" onclick="mudaCorDeFundo(document.querySelector('#Atividade6>p'), this.className)">Fundo branca</button>
+                <button class="black" onclick="mudaCorDeFundo(document.querySelector('#Atividade6>p'), this.className)">Fundo preto</button>
             </div>
             <div id="Atividade7">
                 <h2>
@@ -127,7 +123,7 @@
                     7 – Crie um botão + (mais) e outro – (menos) na mesma página do exercício anterior.
                     Esses botões aumentam e diminuem o tamanho da fonte, respectivamente.
                 </p>
-                <button onclick="mudaTamanhoDaFonte(document.querySelector('#Atividade7>p'), 1)">+</button>
+                <button onclick="mudaTamanhoDaFonte(document.querySelector('#Atividade7>p'),  1)">+</button>
                 <button onclick="mudaTamanhoDaFonte(document.querySelector('#Atividade7>p'), -1)">-</button>
             </div>
             <div id="Atividade8">
@@ -151,13 +147,10 @@
                     Permita que a página seja submetida apenas se todos os campos estiverem preenchidos,
                     se os campos senha e confirma senha forem iguais e a senha possuir entre 6 e 10 caracteres.
                 </h2>
-                <form>
-                    <label for="login">Login</label>
-                    <input type="text" onchange="validarFormulario(this.form)" id="login" required>
-                    <label for="senha">Senha</label>
-                    <input type="password" onchange="validarFormulario(this.form)" id="senha" required>
-                    <label for="confirmacaoDeSenha">Confirme a senha</label>
-                    <input type="password" onchange="validarFormulario(this.form)" id="confirmacaoDeSenha" required>
+                <form onkeyup="validarFormulario(this)">
+                    <label>Login<input type="text" required></label>
+                    <label>Senha<input type="password" required></label>
+                    <label>Confirme a senha<input type="password" required></label>
                     <button type="submit" disabled>Entrar</button>
                 </form>
             </div>
@@ -175,14 +168,12 @@
                         <legend>Nome</legend>
                         <input type="text">
                     </fieldset>
-                    <fieldset onchange="pessoaFisicaOuJuridica(this.form)">
+                    <fieldset>
                         <legend>Pessoa</legend>
-                        <input type="radio" name="pessoa" id="fisica">
-                        <label for="fisica">Física</label>
-                        <input type="text" id="cpf" placeholder="CPF" hidden disabled><br>
-                        <input type="radio" name="pessoa" id="juridica">
-                        <label for="juridica">Jurídica</label>
-                        <input type="text" id="cnpj" placeholder="CNPJ" hidden disabled>
+                        <label><input id="fisica"   type="radio" name="pessoa" onclick="pessoaFisicaOuJuridica(this.form)">Física</label><br>
+                        <label><input id="juridica" type="radio" name="pessoa" onclick="pessoaFisicaOuJuridica(this.form)">Jurídica</label><br>
+                        <label hidden>CPF<input  id="cpf"  type="text" disabled></label>
+                        <label hidden>CNPJ<input id="cnpj" type="text" disabled></label>
                     </fieldset>
                     <fieldset id="dataDeNascimento" hidden disabled>
                         <legend>Data de nascimento</legend>
@@ -190,17 +181,13 @@
                     </fieldset>
                     <fieldset>
                         <legend>Local</legend>
-                        <label for="endereco">Endereço</label>
-                        <input type="text" id="endereco"><br>
-                        <label for="cep">CEP</label>
-                        <input onkeydown="apenasNumeros(event)" type="text" id="cep">
+                        <label>Endereço<input type="text"></label><br>
+                        <label>CEP<input onkeydown="apenasNumeros(event)" type="text"></label>
                     </fieldset>
                     <fieldset>
                         <legend>Contato</legend>
-                        <label for="telefone">Telefone</label>
-                        <input type="text" id="telefone"><br>
-                        <label for="email">Email</label>
-                        <input type="text" id="email"><br>
+                        <label>Telefone<input type="text"></label><br>
+                        <label>Email<input type="text"></label>
                     </fieldset>
                     <button type="submit">Cadastrar</button>
                 </form>

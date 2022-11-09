@@ -7,28 +7,12 @@ function mudaCorDaFonte(element, cor) {
 }
 
 function escondeOuMostra(element, button) {
-    
-
-    if (element.hidden) {
-        element.hidden = false
-        button.innerText = "Esconder"
-    } else {
-        element.hidden = true;
-        button.innerText = "Mostrar"
-    }
+    [element.hidden, button.innerText] = element.hidden ? [false, "Esconder"] : [true, "Mostrar"]
 }
 
 function habilitaOuDesabilitaBotao(form) {
-    let checkboxes = form.querySelectorAll("input:checked")
-    let botaoClicavel = form.querySelector("button")
-
-    if (checkboxes.length >= 2) {
-        botaoClicavel.disabled = false;
-        botaoClicavel.title = "Sim";
-    } else {
-        botaoClicavel.disabled = true;
-        botaoClicavel.title = "Não";
-    }
+    let botaoClicavel = form.querySelector("button"), checkboxes = form.querySelectorAll("input:checked");
+    [botaoClicavel.disabled, botaoClicavel.title] = checkboxes.length >= 2 ? [false, "Sim"] : [true, "Não"]
 }
 
 function mudaTamanhoDaFonte(element, i) {
@@ -45,7 +29,7 @@ function emMinusculo(element) {
 }
 
 function todosCamposPreenchidos(campos) {
-    preenchidos = 0
+    let preenchidos = 0
     campos.forEach(campo => preenchidos += (campo.value) ? 1 : 0)
     return preenchidos === campos.length
 }
@@ -59,33 +43,19 @@ function senhaValida(senha) {
 }
 
 function validarFormulario(element) {
-    campos = element.querySelectorAll("input")
-    senhas = element.querySelectorAll("input[type='password']")
+    let campos = element.querySelectorAll("input"), senhas = element.querySelectorAll("input[type='password']")
     element.querySelector("button").disabled = !(todosCamposPreenchidos(campos) && senhasSaoIguais(senhas) && senhaValida(senhas[1]))
 }
 
 function pessoaFisicaOuJuridica(form) {
-    if (form.querySelector("#fisica:checked")) {
-        form.querySelector("#cpf").disabled = false
-        form.querySelector("#cpf").hidden = false
-        form.querySelector("#cnpj").disabled = true
-        form.querySelector("#cnpj").hidden = true
-        form.querySelector("#dataDeNascimento").disabled = false
-        form.querySelector("#dataDeNascimento").hidden = false
-
-    } else if (form.querySelector("#juridica:checked")) {
-        form.querySelector("#cpf").disabled = true
-        form.querySelector("#cpf").hidden = true
-        form.querySelector("#cnpj").disabled = false
-        form.querySelector("#cnpj").hidden = false
-        form.querySelector("#dataDeNascimento").disabled = true
-        form.querySelector("#dataDeNascimento").hidden = true
-    }
+    let cpf = form.querySelector("#cpf"), cnpj = form.querySelector("#cnpj"), dataDeNascimento = form.querySelector("#dataDeNascimento");
+    [cpf.disabled, cpf.labels[0].hidden, cnpj.disabled, cnpj.labels[0].hidden, dataDeNascimento.disabled, dataDeNascimento.hidden]
+        = form.querySelector("#fisica:checked") ? [false, false, true, true, false, false] : [true, true, false, false, true, true]
 }
 
 function apenasNumeros(event) {
-    key = event.keyCode
-    /* '0' = 95 e 48, '9' = 57 e 106, 'Backspace' = 8, 'Tab' = 9, 'Delete' = 46 */
-    if ((key < 96 || key > 105) && (key < 48 || key > 57) && key != 8 && key != 9 && key != 46 )
+    let key = event.keyCode
+    /* 0 a 9 = 48 a 57 e 95 a 106, Setas = 37 a 40, Backspace = 8, Tab = 9, Delete = 46 */
+    if ((key < 96 || key > 105) && (key < 48 || key > 57) && (key < 37 || key > 40) && key != 8 && key != 9 && key != 46 )
         event.preventDefault();
 }
