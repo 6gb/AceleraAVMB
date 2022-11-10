@@ -1,14 +1,6 @@
-function mudaCorDeFundo(element, cor) {
-    element.style.backgroundColor = cor
-}
-
-function mudaCorDaFonte(element, cor) {
-    element.style.color = cor
-}
-
-function escondeOuMostra(element, button) {
-    [element.hidden, button.innerText] = element.hidden ? [false, "Esconder"] : [true, "Mostrar"]
-}
+const mudaCorDeFundo = (element, cor) => element.style.backgroundColor = cor
+const mudaCorDaFonte = (element, cor) => element.style.color = cor
+const escondeOuMostra = (element, button) => [element.hidden, button.innerText] = element.hidden ? [false, "Esconder"] : [true, "Mostrar"]
 
 function habilitaOuDesabilitaBotao(form) {
     let botaoClicavel = form.querySelector("button"), checkboxes = form.querySelectorAll("input:checked");
@@ -20,13 +12,8 @@ function mudaTamanhoDaFonte(element, i) {
         ? `${100 + i}%` : `${parseInt(element.style.fontSize.replace('%', '')) + i}%`
 }
 
-function emMaiusculo(element) {
-    element.innerText = element.innerText.toUpperCase()
-}
-
-function emMinusculo(element) {
-    element.innerText = element.innerText.toLowerCase()
-}
+const emMaiusculo = (element) => element.innerText = element.innerText.toUpperCase()
+const emMinusculo = (element) => element.innerText = element.innerText.toLowerCase()
 
 function todosCamposPreenchidos(campos) {
     let preenchidos = 0
@@ -34,23 +21,20 @@ function todosCamposPreenchidos(campos) {
     return preenchidos === campos.length
 }
 
-function senhasSaoIguais(senhas) {
-    return senhas[0].value === senhas[1].value
-}
-
-function senhaValida(senha) {
-    return senha.value.length >= 6 && senha.value.length <= 10
-}
+const senhasSaoIguais = (senhas) => senhas[0].value === senhas[1].value
+const senhaValida = (senha) => senha.value.length >= 6 && senha.value.length <= 10
 
 function validarFormulario(element) {
-    let campos = element.querySelectorAll("input"), senhas = element.querySelectorAll("input[type='password']")
-    element.querySelector("button").disabled = !(todosCamposPreenchidos(campos) && senhasSaoIguais(senhas) && senhaValida(senhas[1]))
+    const $ = element.querySelector.bind(element), $$ = element.querySelectorAll.bind(element)
+    let campos = $$("input"), senhas = $$("input[type='password']")
+    $("button").disabled = !(todosCamposPreenchidos(campos) && senhasSaoIguais(senhas) && senhaValida(senhas[1]))
 }
 
 function pessoaFisicaOuJuridica(form) {
-    let cpf = form.querySelector("#cpf"), cnpj = form.querySelector("#cnpj"), dataDeNascimento = form.querySelector("#dataDeNascimento");
+    const $ = form.querySelector.bind(form)
+    let cpf = $("#cpf"), cnpj = $("#cnpj"), dataDeNascimento = $("#dataDeNascimento");
     [cpf.disabled, cpf.labels[0].hidden, cnpj.disabled, cnpj.labels[0].hidden, dataDeNascimento.disabled, dataDeNascimento.hidden]
-        = form.querySelector("#fisica:checked") ? [false, false, true, true, false, false] : [true, true, false, false, true, true]
+        = $("#fisica:checked") ? [false, false, true, true, false, false] : [true, true, false, false, true, true]
 }
 
 function apenasNumeros(event) {

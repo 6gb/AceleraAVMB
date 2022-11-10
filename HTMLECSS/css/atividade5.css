@@ -1,24 +1,19 @@
+div, img, p { float: left; }
+
 div {
-    float: left;
-    position: relative;
+    width: fit-content;
+    background-color: #B5C0AF;
 }
 
-#fundo {
-    background-color: darkgray;
-    padding: 0.5em;
-    width: 130em;
-    height: 47em;
+img {
+    width: 30vw;
+    margin: 0.5vw;
 }
 
-#imagem {
-    margin: 0.3%;
-    width: 20%;
-}
-
-#texto {
+p {
+    width: 32vw;
+    margin: 0 auto;
     color: white;
     font-family: sans-serif;
-    font-size: 3em;
-    line-height: 100%;
-    width: 20%;
+    font-size: 1.3vw;
 }
