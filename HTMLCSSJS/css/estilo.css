@@ -1,7 +1,7 @@
 .bg {
     margin: 0 auto;
     border: 0.5vh solid #ccc;
-    border-radius: 1vh;
+    border-radius: 2vh;
     padding: 2vh;
 }
 
@@ -22,16 +22,16 @@
 }
 
 .menu {
-    border-radius: 3vw;
+    border-radius: 2vw;
     background-color: #555;
-    width: 100%;
-    height: 3vh;
+    width: 99%;
+    padding: 0.5%;
     clear: both;
     text-align: right;
 }
 
 a {
-    text-decoration: none;
+    color: black;
 }
 
 .menu>a {
@@ -42,14 +42,15 @@ a {
 aside {
     background-color: #999;
     padding: 2vh;
-    width: fit-content;
+    width: 15%;
     margin-block: 2vh;
     border-radius: 2vh;
-    height: 60vh;
+    height: 800px;
     float: left;
 }
 
-aside>a {
+.asideLink {
+    width: 85%;
     float: left;
     clear: both;
     background-color: #ccc;
@@ -64,13 +65,16 @@ body {
 }
 
 section {
-    margin: 0 auto;
+    margin-inline: 2vw;
+    float: left;
+    width: 75%;
 }
 
 footer {
     background-color: #555;
-    width: 100%;
+    width: 99%;
     clear: both;
     border-radius: 2vh;
     color: white;
+    padding: 0.5%;
 }
