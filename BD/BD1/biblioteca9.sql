@@ -1,0 +1,1 @@
+-- 9. Crie uma consulta para relacionar todos os dados disponíveis dos livros da categoria de literatura Juvenil em ordem de ano

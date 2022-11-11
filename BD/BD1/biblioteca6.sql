@@ -1,0 +1,1 @@
+-- 6. Crie o comando SQL para a inserção dos referidos dados em todas as tabelas
