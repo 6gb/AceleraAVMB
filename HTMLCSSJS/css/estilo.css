@@ -3,6 +3,8 @@
     border: 0.5vh solid #ccc;
     border-radius: 2vh;
     padding: 2vh;
+    /*display: flex;
+    align-items: stretch;*/
 }
 
 .info {
@@ -45,7 +47,6 @@ aside {
     width: 15%;
     margin-block: 2vh;
     border-radius: 2vh;
-    height: 800px;
     float: left;
 }
 
@@ -77,4 +78,8 @@ footer {
     border-radius: 2vh;
     color: white;
     padding: 0.5%;
+}
+
+.main {
+    height: fit-content;
 }
