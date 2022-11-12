@@ -47,4 +47,4 @@ INSERT INTO dinossauros (nome_dinossauro, toneladas, ano_descoberta, inicio, fim
         (SELECT id_descobridor FROM descobridores WHERE nome_descobridor = 'Barnum Brown'),
         (SELECT id_pais FROM paises WHERE nome_pais = 'América do Norte'));
 
-END;
+COMMIT;

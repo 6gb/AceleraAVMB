@@ -48,4 +48,4 @@ INSERT INTO livros (isbn, titulo_livro, ano_publicacao, fk_editora, fk_categoria
         (SELECT id_categoria FROM categorias WHERE nome_categoria = 'Literatura Juvenil'),
         (SELECT id_autor FROM autores WHERE nome_autor = 'J. K. Rowling'));
 
-END;
+COMMIT;

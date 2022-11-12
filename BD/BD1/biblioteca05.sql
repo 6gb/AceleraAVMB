@@ -42,4 +42,4 @@ CREATE TABLE IF NOT EXISTS livros (
 --    PRIMARY KEY (fk_livro, fk_autor)
 --);
 
-END;
+COMMIT;

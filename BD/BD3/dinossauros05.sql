@@ -39,4 +39,4 @@ CREATE TABLE IF NOT EXISTS dinossauros (
     FOREIGN KEY (fk_pais) REFERENCES paises (id_pais)
 );
 
-END;
+COMMIT;
