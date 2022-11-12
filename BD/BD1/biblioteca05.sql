@@ -36,10 +36,4 @@ CREATE TABLE IF NOT EXISTS livros (
     FOREIGN KEY (fk_autor) REFERENCES autores (id_autor)
 );
 
---CREATE TABLE IF NOT EXISTS livroautor (
---    fk_livro BIGINT REFERENCES livros,
---    fk_autor INTEGER REFERENCES autores,
---    PRIMARY KEY (fk_livro, fk_autor)
---);
-
 COMMIT;
