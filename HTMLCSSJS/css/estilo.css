@@ -78,8 +78,13 @@ footer {
     border-radius: 2vh;
     color: white;
     padding: 0.5%;
+    overflow: hidden;
 }
 
 .main {
     height: fit-content;
+}
+
+#index-img {
+    
 }
